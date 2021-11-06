@@ -1,16 +1,14 @@
 <body>
+  <p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu>
   
-  
-  
-  
-  <div>
+  <!-- <div>
     <span class="p-float-label">
       <input id="input_title" type="text" [(ngModel)]="title"> 
       <label for="input_title">Title</label>
     </span>
     <button pButton type="button" label="Click" ></button>
     <p>{{ title }}</p>
-  </div>
+  </div> -->
 
   <div>
     <router-outlet></router-outlet>
