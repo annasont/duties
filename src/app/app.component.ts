@@ -13,11 +13,10 @@ export class AppComponent {
 
   activeItem!: MenuItem;
 
-  
   ngOnInit() {
       this.items = [
-          {label: 'Mój plan', icon: 'pi pi-fw pi-calendar'},
-          {label: 'Zarządzaj obowiązkami', icon: 'pi pi-fw pi-pencil'},
+          {label: 'My plan', icon: 'pi pi-fw pi-calendar', routerLink: '/my-plan'},
+          {label: 'Manage duties', icon: 'pi pi-fw pi-pencil', routerLink: '/manage-duties'},
       ];
 
       this.activeItem = this.items[0];

@@ -8,10 +8,14 @@ import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { TabViewModule } from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
+import { MyPlanComponent } from './my-plan/my-plan.component';
+import { ManageDutiesComponent } from './manage-duties/manage-duties.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyPlanComponent,
+    ManageDutiesComponent
   ],
   imports: [
     BrowserModule,
