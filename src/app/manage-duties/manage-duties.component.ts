@@ -30,6 +30,7 @@ export class ManageDutiesComponent implements OnInit {
     }
   ]
 
+
   constructor() { }
 
   ngOnInit(): void {

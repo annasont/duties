@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { TabViewModule } from 'primeng/tabview';
-import {TabMenuModule} from 'primeng/tabmenu';
+import { TabMenuModule } from 'primeng/tabmenu';
 import { MyPlanComponent } from './my-plan/my-plan.component';
 import { ManageDutiesComponent } from './manage-duties/manage-duties.component';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {CardModule} from 'primeng/card';
     TabMenuModule,
     TabViewModule,
     CardModule,
-    
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
