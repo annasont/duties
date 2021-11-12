@@ -24,7 +24,7 @@ export class ManageDutiesComponent implements OnInit {
       frequency: Frequency['one-time'],
       dateStart: new Date,
       comment: 'Koniecznie klasa A+++'
-    },
+    },  
     {
       id: 3,
       title: 'Bazgranie',
@@ -35,7 +35,15 @@ export class ManageDutiesComponent implements OnInit {
     }
   ]
 
-  
+  emptyDuty = {
+    id: 0,
+    title: '',
+    frequency: Frequency['one-time'],
+    dateStart: new Date,
+  }
+
+  currentDuty: Duty = this.emptyDuty
+
   dutiesSortedAlphabetically = this.duties.sort(function(a: Duty, b: Duty){
     let textA: string = a.title.toUpperCase();
     let textB: string = b.title.toUpperCase();
@@ -46,6 +54,12 @@ export class ManageDutiesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  
+  selectDuty(duty: Duty) {
+    console.log('SELECT DUTY FIRED', duty)
+    this.currentDuty = duty;
   }
 
 }

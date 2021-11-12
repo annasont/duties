@@ -19,7 +19,7 @@
               </p>
             </td>
             <td class="alignTop">
-              <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain"><i class="pi pi-pencil"></i></button> 
+              <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="selectDuty(duty)"><i class="pi pi-pencil"></i></button> 
               <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain"><i class="pi pi-trash"></i></button>
             </td>
           </tr>
@@ -43,11 +43,28 @@
   </div>
   <div class="col">
     <p-card header="Add new">
-      Content
+     
+      <form #form="ngForm" name="manageDutiesForm">
+        <div class="p-fluid grid">
+          <div class="field col-12">
+            <span class="p-float-label">
+              <input id="float-input" type="text" pInputText>
+              <label for="title">Title</label>
+            </span>
+          </div>
+          <div class="field col-12">
+            <span class="p-float-label">
+              <input id="float-input" type="text" pInputText>
+              <label for="comment">Comment</label>
+            </span>
+          </div>
+       </div>
+      </form>
     </p-card>
   </div>
 </div>
 
+{{ currentDuty | json }}
 
 
 
