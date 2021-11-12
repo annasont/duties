@@ -6,7 +6,7 @@
         <ng-template pTemplate="body" let-duty let-expanded="expanded">
           <tr>
             <td class="short">
-              <button type="button" pButton pRipple [pRowToggler]="duty" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+              <button *ngIf="duty.comment" type="button" pButton pRipple [pRowToggler]="duty" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
             </td>
             <td>
               <p>{{duty.title}}</p>
@@ -27,7 +27,7 @@
             <p></p>
           </td>
           <td>
-            <p>{{ duty.title }}</p>
+            <p class="medium">{{ duty.comment }}</p>
         </td>
 
         </tr>

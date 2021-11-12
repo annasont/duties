@@ -16,12 +16,14 @@ export class ManageDutiesComponent implements OnInit {
       frequencyNumber: 3,
       frequencyUnit: FrequencyUnit['week(s)'],
       dateStart: new Date,
+      comment: 'Najnudniejsza praca'
     },
     {
       id: 2,
       title: 'Kupienie lodowki',
       frequency: Frequency['one-time'],
       dateStart: new Date,
+      comment: 'Koniecznie klasa A+++'
     },
     {
       id: 3,
@@ -55,6 +57,7 @@ interface Duty {
   frequencyNumber?: number;
   frequencyUnit?: FrequencyUnit;
   dateStart: Date;
+  comment?: string;
 }
 
 enum Frequency {
