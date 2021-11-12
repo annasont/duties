@@ -63,7 +63,7 @@ enum Frequency {
 }
 
 enum FrequencyUnit {
-  'week(s)',
-  'month(s)',
-  'year(s)',
+  'week(s)' = 'week(s)',
+  'month(s)' = 'month(s)',
+  'year(s)' = 'year(s)',
 }
