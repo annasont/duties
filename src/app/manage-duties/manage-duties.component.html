@@ -1,19 +1,34 @@
-<h5>Basic</h5>
 <div class="grid">
   <div class="col">
     <p-card header="List of all duties">
-      <p-table [value]="duties">
-        <ng-template pTemplate="body" let-duty>
+      <p-table [value]="dutiesSortedAlphabetically" dataKey="id">
+
+        <ng-template pTemplate="body" let-duty let-expanded="expanded">
           <tr>
-              <td>
-                <p class="p-text-bold">{{duty.title}}</p>
-                <p>
-                  <i class="pi pi-calendar"></i> &nbsp; 
-                  {{ duty.dateStart | date }} &nbsp; 
-                  <span *ngIf="duty.frequencyNumber"><i class="pi pi-replay"></i></span>
-                </p>
-              </td>
+            <td class="short">
+              <button type="button" pButton pRipple [pRowToggler]="duty" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+            </td>
+            <td>
+              <p class="p-text-bold">{{duty.title}}</p>
+              <p>
+                <i class="pi pi-calendar"></i> &nbsp; 
+                {{ duty.dateStart | date }} &nbsp; 
+                <span *ngIf="duty.frequencyNumber"><i class="pi pi-replay"></i></span>
+              </p>
+            </td>
           </tr>
+      </ng-template>
+      
+      <ng-template pTemplate="rowexpansion" let-duty>
+        <tr>  
+          <td class="short">
+            <p></p>
+          </td>
+          <td>
+            <p>{{ duty.title }}</p>
+        </td>
+
+        </tr>
       </ng-template>
 
       </p-table>

@@ -10,6 +10,7 @@ export class ManageDutiesComponent implements OnInit {
 
   duties:Duty[] = [
     {
+      id: 1,
       title: 'Mycie okien',
       frequency: Frequency.repeat,
       frequencyNumber: 3,
@@ -17,11 +18,13 @@ export class ManageDutiesComponent implements OnInit {
       dateStart: new Date,
     },
     {
+      id: 2,
       title: 'Kupienie lodowki',
       frequency: Frequency['one-time'],
       dateStart: new Date,
     },
     {
+      id: 3,
       title: 'Bazgranie',
       frequency: Frequency.repeat,
       frequencyNumber: 4,
@@ -29,6 +32,13 @@ export class ManageDutiesComponent implements OnInit {
       dateStart: new Date,
     }
   ]
+
+  
+  dutiesSortedAlphabetically = this.duties.sort(function(a: Duty, b: Duty){
+    let textA: string = a.title.toUpperCase();
+    let textB: string = b.title.toUpperCase();
+    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  })
 
 
   constructor() { }
@@ -39,11 +49,12 @@ export class ManageDutiesComponent implements OnInit {
 }
 
 interface Duty {
-  title: string
-  frequency: Frequency,
-  frequencyNumber?: number,
-  frequencyUnit?: FrequencyUnit,
-  dateStart: Date,
+  id: number;
+  title: string;
+  frequency: Frequency;
+  frequencyNumber?: number;
+  frequencyUnit?: FrequencyUnit;
+  dateStart: Date;
 }
 
 enum Frequency {
