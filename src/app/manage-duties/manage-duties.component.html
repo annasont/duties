@@ -1,5 +1,5 @@
-<div class="grid">
-  <div class="col">
+<div class="p-grid">
+  <div class="p-col">
     <p-card header="List of all duties">
       <p-table [value]="dutiesSortedAlphabetically" dataKey="id">
 
@@ -41,23 +41,35 @@
       </p-table>
     </p-card>
   </div>
-  <div class="col">
+  <div class="p-col">
     <p-card header="Add new">
      
-      <form #form="ngForm" name="manageDutiesForm">
+      <form name="manageDutiesForm" #form="ngForm">
         <div class="p-fluid grid">
-          <div class="field col-12">
+          <div class="p-field p-col-12">
             <span class="p-float-label">
-              <input id="float-input" type="text" pInputText>
+              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.title" name="title">
               <label for="title">Title</label>
             </span>
           </div>
-          <div class="field col-12">
+          <div class="p-field p-col-12">
             <span class="p-float-label">
-              <input id="float-input" type="text" pInputText>
+              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.comment" name="comment">
               <label for="comment">Comment</label>
             </span>
-          </div>
+          </div> 
+            <div class="p-field p-col">
+              <span class="p-float-label">
+                <p-dropdown [(ngModel)]="currentDuty.frequency" [options]="optionsFrequency" name="frequency" optionLabel="name" optionValue="value"></p-dropdown>  
+                <label for="frequency">Frequency</label>
+              </span>
+            </div> 
+            <div class="p-field p-col">
+              <span class="p-float-label">
+                <p-calendar [(ngModel)]="currentDuty.dateStart" dateFormat="dd.mm.yy"></p-calendar>
+                <label for="comment">When</label>
+              </span>
+            </div>
        </div>
       </form>
     </p-card>

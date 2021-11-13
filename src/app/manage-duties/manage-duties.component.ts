@@ -14,14 +14,14 @@ export class ManageDutiesComponent implements OnInit {
       title: 'Mycie okien',
       frequency: Frequency.repeat,
       frequencyNumber: 3,
-      frequencyUnit: FrequencyUnit['week(s)'],
+      frequencyUnit: FrequencyUnit.years,
       dateStart: new Date,
       comment: 'Najnudniejsza praca'
     },
     {
       id: 2,
       title: 'Kupienie lodowki',
-      frequency: Frequency['one-time'],
+      frequency: Frequency.oneTime,
       dateStart: new Date,
       comment: 'Koniecznie klasa A+++'
     },  
@@ -30,7 +30,7 @@ export class ManageDutiesComponent implements OnInit {
       title: 'Bazgranie',
       frequency: Frequency.repeat,
       frequencyNumber: 4,
-      frequencyUnit: FrequencyUnit['year(s)'],
+      frequencyUnit: FrequencyUnit.weeks,
       dateStart: new Date,
     }
   ]
@@ -38,11 +38,24 @@ export class ManageDutiesComponent implements OnInit {
   emptyDuty = {
     id: 0,
     title: '',
-    frequency: Frequency['one-time'],
+    frequency: Frequency.oneTime,
     dateStart: new Date,
   }
 
   currentDuty: Duty = this.emptyDuty
+
+  optionsFrequency = [
+    {
+      name: 'one-time',
+      value: Frequency.oneTime
+    },
+    {
+      name: 'repeat',
+      value: Frequency.repeat
+    }
+
+  
+  ]
 
   dutiesSortedAlphabetically = this.duties.sort(function(a: Duty, b: Duty){
     let textA: string = a.title.toUpperCase();
@@ -75,12 +88,12 @@ interface Duty {
 }
 
 enum Frequency {
-  'one-time',
-  'repeat'
+  oneTime = 'oneTime',
+  repeat = 'repeat'
 }
 
 enum FrequencyUnit {
-  'week(s)' = 'week(s)',
-  'month(s)' = 'month(s)',
-  'year(s)' = 'year(s)',
+  weeks = 'weeks',
+  months = 'months',
+  years = 'years',
 }
