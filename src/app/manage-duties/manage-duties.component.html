@@ -42,10 +42,7 @@
     </p-card>
   </div>
   <div class="p-col">
-    <p-card header="Add new">
-    <!-- *ngIf="currentDuty.id; else elseBlock">
-    <ng-template #elseBlock><p-card header="Edit"></p-card></ng-template> -->
-      
+    <p-card [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
       <form class="p-mt-4" name="manageDutiesForm" #form="ngForm">
         <div class="p-fluid p-grid">
           <div class="p-field p-col-12">
@@ -91,7 +88,7 @@
           </div>
           <div class="p-field p-col p-md-2">
             <span class="p-float-label">
-              <button pButton type="button" label="Cancel" class="p-button-warning"></button>
+              <button pButton type="button" label="Cancel" class="p-button-warning" (click)="resetSelectedDuty()"></button>
             </span>
           </div>
         </div>

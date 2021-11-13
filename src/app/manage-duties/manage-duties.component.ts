@@ -88,6 +88,10 @@ export class ManageDutiesComponent implements OnInit {
     this.currentDuty = duty;
   }
 
+  resetSelectedDuty() {
+    this.currentDuty = this.emptyDuty
+  }
+
 }
 
 interface Duty {
