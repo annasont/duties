@@ -53,8 +53,21 @@ export class ManageDutiesComponent implements OnInit {
       name: 'repeat',
       value: Frequency.repeat
     }
+  ]
 
-  
+  optionsFrequencyUnit = [
+    {
+      name: 'week(s)',
+      value: FrequencyUnit.weeks
+    },
+    {
+      name: 'month(s)',
+      value: FrequencyUnit.months
+    },
+    {
+      name: 'year(s)',
+      value: FrequencyUnit.years
+    }
   ]
 
   dutiesSortedAlphabetically = this.duties.sort(function(a: Duty, b: Duty){

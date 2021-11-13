@@ -15,6 +15,7 @@ import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {CalendarModule} from 'primeng/calendar';
     TableModule,
     BrowserAnimationsModule,
     CalendarModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]
