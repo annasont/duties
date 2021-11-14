@@ -1,0 +1,15 @@
+{
+    "duties": [
+        {
+        "id": 1,
+        "title": "Mycie OKIEN",
+        "frequency": "Frequency.repeat",
+        "frequencyNumber": 3,
+        "frequencyUnit": "FrequencyUnit.years",
+        "dateStart": "new Date",
+        "comment": "Najnudniejsza praca"
+        }
+
+    ]
+}
+       
