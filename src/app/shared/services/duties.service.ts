@@ -5,7 +5,7 @@ import { Duty, Frequency, FrequencyUnit } from '../interfaces';
   providedIn: 'root'
 })
 export class DutiesService {
-  duties:Duty[] = [
+  private duties:Duty[] = [
     {
       id: 1,
       title: 'Mycie OKIEN',
@@ -74,5 +74,41 @@ export class DutiesService {
   })
 
   constructor() { }
+
+  all() {
+    return this.duties
+  }
+
+  allSorted() {
+    return this.dutiesSortedAlphabetically
+  }
+
+  getOptionsFrequency(){
+    return this.optionsFrequency
+  }
+
+  getOptionsFrequencyUnit(){
+    return this.optionsFrequencyUnit
+  }
+
+  find(dutyId: number) {
+
+  }
+
+  create(duty: Duty){
+    console.log('created', duty)
+
+  }
+
+  update(duty: Duty){
+    console.log('updated', duty)
+
+  }
+
+  delete(dutyId: number){
+    console.log('deleted', dutyId)
+
+  }
+
 }
 

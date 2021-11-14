@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
 import { Duty, Frequency } from '../shared/interfaces';
 
-@Component({
+@Component({  
   selector: 'app-manage-duties',
   templateUrl: './manage-duties.component.html',
   styleUrls: ['./manage-duties.component.scss']
@@ -25,21 +25,16 @@ export class ManageDutiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedDuty();
-    this.duties = this.dutiesService.duties;
-    this.dutiesSortedAlphabetically = this.dutiesService.dutiesSortedAlphabetically;
-    this.optionsFrequency = this.dutiesService.optionsFrequency;
-    this.optionsFrequencyUnit = this.dutiesService.optionsFrequencyUnit;
+    this.duties = this.dutiesService.all();
+    this.dutiesSortedAlphabetically = this.dutiesService.allSorted();
+    this.optionsFrequency = this.dutiesService.getOptionsFrequency();
+    this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();
   }
 
   selectDuty(duty: Duty) {
-    console.log('SELECT DUTY FIRED', duty)
     this.currentDuty = duty;
   }
   
-  saveDuty() {
-    console.log("SAVED!!!")
-  }
-
   resetSelectedDuty() {
     const emptyDuty = {
       id: 0,
@@ -50,9 +45,21 @@ export class ManageDutiesComponent implements OnInit {
     this.currentDuty = emptyDuty
   }
 
+  saveDuty(duty: Duty) {
+    if (duty.id) {
+      this.dutiesService.update(duty)
+    } else {
+      this.dutiesService.create(duty)
+    }
+  }
+
   cancel() {
     this.resetSelectedDuty()
-    console.log("CANCELED")
+  }
+
+  delete(duty: Duty) {
+    this.selectDuty(duty);
+    this.dutiesService.delete(duty.id)
   }
 
 }
