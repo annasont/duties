@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MyPlanComponent } from './my-plan/my-plan.component';
@@ -14,8 +14,9 @@ import { ManageDutiesComponent } from './manage-duties/manage-duties.component';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CalendarModule} from 'primeng/calendar';
-import {InputNumberModule} from 'primeng/inputnumber';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DutiesService } from './shared/services/duties.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
     CalendarModule,
     InputNumberModule
   ],
-  providers: [],
+  providers: [DutiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
