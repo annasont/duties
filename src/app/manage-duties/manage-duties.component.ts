@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
+import { Duty, Frequency } from '../shared/interfaces';
 
 @Component({
   selector: 'app-manage-duties',
@@ -54,25 +55,4 @@ export class ManageDutiesComponent implements OnInit {
     console.log("CANCELED")
   }
 
-}
-
-interface Duty {
-  id: number;
-  title: string;
-  frequency: Frequency;
-  frequencyNumber?: number;
-  frequencyUnit?: FrequencyUnit;
-  dateStart: Date;
-  comment?: string;
-}
-
-enum Frequency {
-  oneTime = 'oneTime',
-  repeat = 'repeat'
-}
-
-enum FrequencyUnit {
-  weeks = 'weeks',
-  months = 'months',
-  years = 'years',
 }

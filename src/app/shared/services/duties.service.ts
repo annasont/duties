@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Duty, Frequency, FrequencyUnit } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -75,23 +76,3 @@ export class DutiesService {
   constructor() { }
 }
 
-interface Duty {
-  id: number;
-  title: string;
-  frequency: Frequency;
-  frequencyNumber?: number;
-  frequencyUnit?: FrequencyUnit;
-  dateStart: Date;
-  comment?: string;
-}
-
-enum Frequency {
-  oneTime = 'oneTime',
-  repeat = 'repeat'
-}
-
-enum FrequencyUnit {
-  weeks = 'weeks',
-  months = 'months',
-  years = 'years',
-}
