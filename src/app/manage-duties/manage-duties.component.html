@@ -43,11 +43,11 @@
   </div>
   <div class="p-col">
     <p-card [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
-      <form class="p-mt-4" name="manageDutiesForm" #form="ngForm">
+      <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saveDuty()">
         <div class="p-fluid p-grid">
           <div class="p-field p-col-12">
             <span class="p-float-label">
-              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.title" name="title">
+              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.title" name="title" required>
               <label for="title">Title</label>
             </span>
           </div>
@@ -83,16 +83,18 @@
           </div>
           <div class="p-field p-col p-md-2">
             <span class="p-float-label">
-              <button pButton type="button" label="Submit" class="p-button-info"></button>
+              <button pButton [disabled]="form.invalid" type="submit" label="Submit" class="p-button-info"></button>
             </span>
           </div>
           <div class="p-field p-col p-md-2">
             <span class="p-float-label">
-              <button pButton type="button" label="Cancel" class="p-button-warning" (click)="resetSelectedDuty()"></button>
+              <button pButton type="button" label="Cancel" class="p-button-warning" (click)="cancel()"></button>
             </span>
           </div>
         </div>
       </form>
+      <pre>{{ form.value | json }}</pre>
+      <pre>{{ form.valid | json }}</pre>
     </p-card>
   </div>
 </div>

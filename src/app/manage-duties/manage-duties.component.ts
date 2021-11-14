@@ -80,16 +80,25 @@ export class ManageDutiesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.resetSelectedDuty()
   }
 
-  
   selectDuty(duty: Duty) {
     console.log('SELECT DUTY FIRED', duty)
     this.currentDuty = duty;
   }
+  
+  saveDuty() {
+    console.log("SAVED!!!")
+  }
 
   resetSelectedDuty() {
     this.currentDuty = this.emptyDuty
+  }
+
+  cancel() {
+    this.resetSelectedDuty()
+    console.log("CANCELED")
   }
 
 }
