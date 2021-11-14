@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -17,14 +16,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DutiesService } from './shared/services/duties.service';
-import { ValidateCalendarDirective } from './directives/validate-calendar.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyPlanComponent,
     ManageDutiesComponent,
-    ValidateCalendarDirective
   ],
   imports: [
     BrowserModule,
