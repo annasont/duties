@@ -65,7 +65,7 @@
           </div>
           <div class="p-field p-col p-md-4" *ngIf="currentDuty.frequency==='repeat'">
             <span class="p-float-label">
-              <p-inputNumber [(ngModel)]="currentDuty.frequencyNumber" name="frequencyNumber"></p-inputNumber>  
+              <p-inputNumber [(ngModel)]="currentDuty.frequencyNumber" name="frequencyNumber" [required]="true"></p-inputNumber>  
               <label for="frequency">Every (number)</label>
             </span>
           </div> 
@@ -76,7 +76,7 @@
           </div>
           <div class="p-field p-col p-md-12">
             <span class="p-float-label">
-              <p-calendar [(ngModel)]="currentDuty.dateStart" dateFormat="dd.mm.yy" name="startDate" [required]="true"></p-calendar>
+              <p-calendar [(ngModel)]="currentDuty.dateStart" dateFormat="dd.mm.yy" name="startDate" [required]="currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
               <label for="comment" *ngIf="currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
               <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
             </span>
