@@ -17,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DutiesService } from './shared/services/duties.service';
+import { ValidateCalendarDirective } from './directives/validate-calendar.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyPlanComponent,
-    ManageDutiesComponent
+    ManageDutiesComponent,
+    ValidateCalendarDirective
   ],
   imports: [
     BrowserModule,
