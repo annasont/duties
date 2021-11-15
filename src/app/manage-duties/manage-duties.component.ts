@@ -19,14 +19,16 @@ export class ManageDutiesComponent implements OnInit {
   }
   optionsFrequency = [{}]
   optionsFrequencyUnit = [{}]
-  dutiesSortedAlphabetically = [{}]
 
   constructor(private dutiesService: DutiesService) { }
 
   ngOnInit(): void {
     this.resetSelectedDuty();
-    this.dutiesService.all().subscribe(duties => this.duties = duties);
-    this.dutiesSortedAlphabetically = this.dutiesService.allSorted();
+    this.dutiesService.all().subscribe(duties => this.duties = duties.sort(function(a: Duty, b: Duty){
+      let textA: string = a.title.toUpperCase();
+      let textB: string = b.title.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    }));
     this.optionsFrequency = this.dutiesService.getOptionsFrequency();
     this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();
   }
