@@ -1,13 +1,22 @@
 {
     "duties": [
         {
-        "id": 1,
-        "title": "Mycie OKIEN",
-        "frequency": "Frequency.repeat",
-        "frequencyNumber": 3,
-        "frequencyUnit": "FrequencyUnit.years",
-        "dateStart": "new Date",
-        "comment": "Najnudniejsza praca"
+            "id": 1,
+            "title": "Mycie OKIEN",
+            "frequency": "Frequency.repeat",
+            "frequencyNumber": 3,
+            "frequencyUnit": "FrequencyUnit.years",
+            "dateStart": "new Date",
+            "comment": "Najnudniejsza praca"
+        },
+        {
+            "id": 2,
+            "title": "Bleh",
+            "frequency": "Frequency.repeat",
+            "frequencyNumber": 1,
+            "frequencyUnit": "FrequencyUnit.weeks",
+            "dateStart": "new Date",
+            "comment": "Oby dzialalo!"
         }
 
     ]

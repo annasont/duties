@@ -25,7 +25,7 @@ export class ManageDutiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedDuty();
-    this.duties = this.dutiesService.all();
+    this.dutiesService.all().subscribe(duties => this.duties = duties);
     this.dutiesSortedAlphabetically = this.dutiesService.allSorted();
     this.optionsFrequency = this.dutiesService.getOptionsFrequency();
     this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();

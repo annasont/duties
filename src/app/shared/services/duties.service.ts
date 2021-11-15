@@ -1,10 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Duty, Frequency, FrequencyUnit } from '../interfaces';
 
+const BASE_URL = 'http://localhost:3000/'
 @Injectable({
   providedIn: 'root'
 })
 export class DutiesService {
+  private model = 'duties'
   private duties:Duty[] = [
     {
       id: 1,
@@ -73,10 +77,10 @@ export class DutiesService {
     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
   })
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  all() {
-    return this.duties
+  all():Observable<Duty[]> {
+    return this.http.get<Duty[]>(`${BASE_URL}${this.model}`)
   }
 
   allSorted() {
