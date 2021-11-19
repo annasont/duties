@@ -5,8 +5,8 @@
             "title": "Mycie OKIEN",
             "frequency": "Frequency.repeat",
             "frequencyNumber": 3,
-            "frequencyUnit": "FrequencyUnit.years",
-            "dateStart": "new Date",
+            "frequencyUnit": "years",
+            "dateStart": "2021-11-19T16:12:48.746Z",
             "comment": "Najnudniejsza praca"
         },
         {
@@ -14,8 +14,8 @@
             "title": "Bleh",
             "frequency": "Frequency.repeat",
             "frequencyNumber": 1,
-            "frequencyUnit": "FrequencyUnit.weeks",
-            "dateStart": "new Date",
+            "frequencyUnit": "weeks",
+            "dateStart": "2021-11-19T16:12:48.746Z",
             "comment": "Oby dzialalo!"
         }
 
