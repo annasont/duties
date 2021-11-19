@@ -17,7 +17,7 @@ export class DutiesService {
     id: 0,
     title: '',
     frequency: Frequency.oneTime,
-    dateStart: new Date,
+    dateStart: new Date().toString(),
   }
 
   currentDuty: Duty = this.emptyDuty
@@ -68,12 +68,12 @@ export class DutiesService {
   }
 
   create(duty: Duty){
-    return this.http.put<Duty[]>(this.getUrl(), duty)
+    return this.http.post<Duty[]>(this.getUrl(), duty)
   
   }
 
   update(duty: Duty){
-    return this.http.post<Duty[]>(this.getUrl(), duty)
+    return this.http.put<Duty[]>(this.getUrlById(duty), duty)
 
   }
 
@@ -84,6 +84,10 @@ export class DutiesService {
 
   getUrl() {
     return `${BASE_URL}${this.model}`
+  }
+
+  getUrlById(duty: Duty) {
+    return `${this.getUrl()}/${duty.id}`
   }
 
 }

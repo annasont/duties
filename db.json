@@ -1,24 +1,47 @@
 {
-    "duties": [
-        {
-            "id": 1,
-            "title": "Mycie OKIEN",
-            "frequency": "Frequency.repeat",
-            "frequencyNumber": 3,
-            "frequencyUnit": "years",
-            "dateStart": "2021-11-19T16:12:48.746Z",
-            "comment": "Najnudniejsza praca"
-        },
-        {
-            "id": 2,
-            "title": "Bleh",
-            "frequency": "Frequency.repeat",
-            "frequencyNumber": 1,
-            "frequencyUnit": "weeks",
-            "dateStart": "2021-11-19T16:12:48.746Z",
-            "comment": "Oby dzialalo!"
-        }
-
-    ]
+  "duties": [
+    {
+      "id": 1,
+      "title": "Mycie OKIEN",
+      "frequency": "Frequency.repeat",
+      "frequencyNumber": 3,
+      "frequencyUnit": "years",
+      "dateStart": "2021-11-19T16:12:48.746Z",
+      "comment": "Najnudniejsza praca"
+    },
+    {
+      "id": 2,
+      "title": "Bleh",
+      "frequency": "Frequency.repeat",
+      "frequencyNumber": 1,
+      "frequencyUnit": "weeks",
+      "dateStart": "2021-11-19T16:12:48.746Z",
+      "comment": "Oby dzialalo!"
+    },
+    {
+      "id": 3,
+      "title": "Cos calkiem nowego",
+      "frequency": "oneTime",
+      "dateStart": "2021-11-19T16:25:02.824Z",
+      "comment": "dfa"
+    },
+    {
+      "id": 4,
+      "title": "I jeszcze jeden",
+      "frequency": "repeat",
+      "dateStart": "2021-11-23T23:00:00.000Z",
+      "frequencyNumber": 5,
+      "frequencyUnit": "months",
+      "comment": "fgdrgr"
+    },
+    {
+      "id": 5,
+      "title": "A moze cos na a",
+      "frequency": "repeat",
+      "dateStart": "2021-11-29T23:00:00.000Z",
+      "comment": "z komentarzem",
+      "frequencyNumber": 5,
+      "frequencyUnit": "months"
+    }
+  ]
 }
-       

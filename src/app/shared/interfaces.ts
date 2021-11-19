@@ -5,7 +5,7 @@ export interface Duty {
     frequency: Frequency;
     frequencyNumber?: number;
     frequencyUnit?: FrequencyUnit;
-    dateStart: Date;
+    dateStart: string;
     comment?: string;
   }
   
