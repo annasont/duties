@@ -50,8 +50,10 @@ export class ManageDutiesComponent implements OnInit {
   saveDuty(duty: Duty) {
     if (duty.id) {
       this.dutiesService.update(duty)
+      .subscribe(result => console.log("i co my tu mamy?", result))
     } else {
       this.dutiesService.create(duty)
+      .subscribe(result => console.log('Tu cos innego!', result))
     }
   }
 

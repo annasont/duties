@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Duty, Frequency, FrequencyUnit } from '../interfaces';
 
 const BASE_URL = 'http://localhost:3000/'
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class DutiesService {
   private model = 'duties'
 
@@ -45,10 +48,11 @@ export class DutiesService {
     }
   ]
 
+
   constructor(private http:HttpClient) { }
 
   all():Observable<Duty[]> {
-    return this.http.get<Duty[]>(`${BASE_URL}${this.model}`)
+    return this.http.get<Duty[]>(this.getUrl())
   }
 
   getOptionsFrequency(){
@@ -64,18 +68,22 @@ export class DutiesService {
   }
 
   create(duty: Duty){
-    console.log('created', duty)
-
+    return this.http.put<Duty[]>(this.getUrl(), duty)
+  
   }
 
   update(duty: Duty){
-    console.log('updated', duty)
+    return this.http.post<Duty[]>(this.getUrl(), duty)
 
   }
 
   delete(dutyId: number){
     console.log('deleted', dutyId)
 
+  }
+
+  getUrl() {
+    return `${BASE_URL}${this.model}`
   }
 
 }
