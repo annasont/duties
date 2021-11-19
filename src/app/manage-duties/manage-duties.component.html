@@ -76,7 +76,7 @@
           </div>
           <div class="p-field p-col p-md-12">
             <span class="p-float-label">
-              <p-calendar [ngModel]="date"  dateFormat="dd.mm.yy" name="startDate" [required]="currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
+              <p-calendar [ngModel]="date" dateFormat="dd.mm.yy" name="startDate" (ngModelChange)="updateDate($event)" [required]="currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
               <label for="comment" *ngIf="currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
               <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
             </span>

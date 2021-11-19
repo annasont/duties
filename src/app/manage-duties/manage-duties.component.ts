@@ -47,7 +47,6 @@ export class ManageDutiesComponent implements OnInit {
   }
 
   
-  
   resetSelectedDuty() {
     const emptyDuty = {
       id: 0,
@@ -58,8 +57,8 @@ export class ManageDutiesComponent implements OnInit {
     this.currentDuty = emptyDuty
   }
 
-  updateDate(date: Date, duty: Duty) {
-    duty.dateStart = date.toString()
+  updateDate(date: Date) {
+    this.currentDuty.dateStart = date.toString()
   }
 
   saveDuty(duty: Duty) {
