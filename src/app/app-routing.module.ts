@@ -5,6 +5,7 @@ import { MyPlanComponent } from './my-plan/my-plan.component';
 
 
 const routes: Routes = [
+  { path: '', component: MyPlanComponent },
   { path: 'my-plan', component: MyPlanComponent },
   { path: 'manage-duties', component: ManageDutiesComponent }
 ]
