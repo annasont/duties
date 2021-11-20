@@ -8,15 +8,6 @@
       "frequencyNumber": 10
     },
     {
-      "id": 5,
-      "title": "Moze zamiatanie",
-      "frequency": "repeat",
-      "dateStart": "Sat Nov 20 2021 10:40:16 GMT+0100 (Central European Standard Time)",
-      "comment": "a co tam",
-      "frequencyNumber": 6,
-      "frequencyUnit": "years"
-    },
-    {
       "id": 6,
       "title": "Nowy obowiązek ",
       "frequency": "repeat",
@@ -39,6 +30,15 @@
       "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "comment": "dfa",
       "frequencyNumber": 4,
+      "frequencyUnit": "months"
+    },
+    {
+      "id": 9,
+      "title": "cos nowego",
+      "frequency": "repeat",
+      "dateStart": "Sun Nov 21 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "dfa",
+      "frequencyNumber": 3,
       "frequencyUnit": "months"
     }
   ]

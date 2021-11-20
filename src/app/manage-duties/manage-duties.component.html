@@ -1,6 +1,15 @@
 <div class="p-grid">
+  
   <div class="p-col">
-    <p-card header="List of all duties">
+    <app-duties-list 
+      [duties]="duties"
+      (selected)="selectDuty($event)"
+      (deleted)="delete($event)"
+    >
+
+
+    </app-duties-list>
+    <!-- <p-card header="List of all duties">
       <p-table [value]="duties" dataKey="id">
 
         <ng-template pTemplate="body" let-duty let-expanded="expanded">
@@ -39,10 +48,11 @@
       </ng-template>
 
       </p-table>
-    </p-card>
+    </p-card> -->
   </div>
   <div class="p-col">
-    <p-card [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
+    <app-duty-details></app-duty-details>
+    <!-- <p-card [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
       <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saveDuty(currentDuty)">
         <div class="p-fluid p-grid">
           <div class="p-field p-col-12">
@@ -95,11 +105,10 @@
       </form>
       <pre>{{ form.value | json }}</pre>
       <pre>{{ form.valid | json }}</pre>
-    </p-card>
+    </p-card> -->
   </div>
 </div>
 
-{{ currentDuty | json }}
 
 
 

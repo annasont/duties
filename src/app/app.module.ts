@@ -17,12 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DutiesService } from './shared/services/duties.service';
+import { DutiesListComponent } from './manage-duties/duties-list/duties-list.component';
+import { DutyDetailsComponent } from './manage-duties/duty-details/duty-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyPlanComponent,
     ManageDutiesComponent,
+    DutiesListComponent,
+    DutyDetailsComponent,
   ],
   imports: [
     BrowserModule,
