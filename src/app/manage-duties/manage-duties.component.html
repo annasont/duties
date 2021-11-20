@@ -1,111 +1,23 @@
 <div class="p-grid">
-  
   <div class="p-col">
     <app-duties-list 
       [duties]="duties"
       (selected)="selectDuty($event)"
       (deleted)="delete($event)"
     >
-
-
     </app-duties-list>
-    <!-- <p-card header="List of all duties">
-      <p-table [value]="duties" dataKey="id">
-
-        <ng-template pTemplate="body" let-duty let-expanded="expanded">
-          <tr>
-            <td class="short alignTop">
-              <button *ngIf="duty.comment" type="button" pButton pRipple [pRowToggler]="duty" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-            </td>
-            <td>
-              <p>{{duty.title}}</p>
-              <p class="medium">
-                <i class="pi pi-calendar medium"></i> &nbsp; 
-                {{ duty.dateStart | date }} &nbsp;
-              <p class="medium" *ngIf="duty.frequencyNumber">
-                <i class="pi pi-replay medium"></i> &nbsp;
-                Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
-              </p>
-            </td>
-            <td class="alignTop">
-              <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="selectDuty(duty)"><i class="pi pi-pencil"></i></button> 
-              <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="delete(duty)"><i class="pi pi-trash"></i></button>
-            </td>
-          </tr>
-
-      </ng-template>
-      
-      <ng-template pTemplate="rowexpansion" let-duty>
-        <tr>  
-          <td class="short">
-            <p></p>
-          </td>
-          <td>
-            <p class="medium">{{ duty.comment }}</p>
-        </td>
-
-        </tr>
-      </ng-template>
-
-      </p-table>
-    </p-card> -->
   </div>
   <div class="p-col">
-    <app-duty-details></app-duty-details>
-    <!-- <p-card [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
-      <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saveDuty(currentDuty)">
-        <div class="p-fluid p-grid">
-          <div class="p-field p-col-12">
-            <span class="p-float-label">
-              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.title" name="title" required>
-              <label for="title">Title</label>
-            </span>
-          </div>
-          <div class="p-field p-col-12">
-            <span class="p-float-label">
-              <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.comment" name="comment">
-              <label for="comment">Comment</label>
-            </span>
-          </div> 
-          <div class="p-field p-col p-md-4">
-            <span class="p-float-label">
-              <p-dropdown [(ngModel)]="currentDuty.frequency" [options]="optionsFrequency" name="frequency" optionLabel="name" optionValue="value"></p-dropdown>  
-              <label for="frequency">Frequency</label>
-            </span>
-          </div>
-          <div class="p-field p-col p-md-4" *ngIf="currentDuty.frequency==='repeat'">
-            <span class="p-float-label">
-              <p-inputNumber [(ngModel)]="currentDuty.frequencyNumber" name="frequencyNumber" [required]="true"></p-inputNumber>  
-              <label for="frequency">Every (number)</label>
-            </span>
-          </div> 
-          <div class="p-field p-col p-md-4" *ngIf="currentDuty.frequency==='repeat'">
-            <span class="p-float-label">
-              <p-dropdown [(ngModel)]="currentDuty.frequencyUnit" [options]="optionsFrequencyUnit" name="frequencyUnit" optionLabel="name" optionValue="value"></p-dropdown>
-            </span>
-          </div>
-          <div class="p-field p-col p-md-12">
-            <span class="p-float-label">
-              <p-calendar [ngModel]="date" dateFormat="dd.mm.yy" name="startDate" (ngModelChange)="updateDate($event)" [required]="currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
-              <label for="comment" *ngIf="currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
-              <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
-            </span>
-          </div>
-          <div class="p-field p-col p-md-2">
-            <span class="p-float-label">
-              <button pButton [disabled]="form.invalid" type="submit" label="Submit" class="p-button-info"></button>
-            </span>
-          </div>
-          <div class="p-field p-col p-md-2">
-            <span class="p-float-label">
-              <button pButton type="button" label="Cancel" class="p-button-warning" (click)="cancel()"></button>
-            </span>
-          </div>
-        </div>
-      </form>
-      <pre>{{ form.value | json }}</pre>
-      <pre>{{ form.valid | json }}</pre>
-    </p-card> -->
+    <app-duty-details
+      [currentDuty]="currentDuty"
+      [optionsFrequency]="optionsFrequency"
+      [optionsFrequencyUnit]="optionsFrequencyUnit"
+      [date]="date"
+      (saved)="saveDuty(currentDuty)"
+      (canceled)="cancel()"
+      (dateUpdated)="updateDate($event)"
+    >
+    </app-duty-details>
   </div>
 </div>
 
