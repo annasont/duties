@@ -68,23 +68,30 @@ export class ManageDutiesComponent implements OnInit {
     if (duty.id == 0) {
       this.dutiesService.create(duty)
       .subscribe(
-        result => this.loadDuties(), 
+        result => this. refreshDuties(), 
         error => console.log(`saveDuty create error`, error)
       );
+
     } else {
       this.dutiesService.update(duty)
       .subscribe(
-        result => this.loadDuties(),
+        result => this. refreshDuties(),
         error => console.log(`saveDuty update error`, error)
-      )
+      );
+
     }
+  }
+
+  refreshDuties() {
+    this.loadDuties();
+    this.resetSelectedDuty();
   }
 
   delete(duty: Duty) {
     this.selectDuty(duty);
     this.dutiesService.delete(duty)
     .subscribe(
-      result => this.loadDuties(),
+      result => this. refreshDuties(),
       error => console.log(`delete error`, error)
     );
   }

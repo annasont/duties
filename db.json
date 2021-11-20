@@ -1,12 +1,6 @@
 {
   "duties": [
     {
-      "id": 3,
-      "title": "Jeszcze jeden ",
-      "frequency": "oneTime",
-      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)"
-    },
-    {
       "id": 4,
       "title": "A co tam",
       "frequency": "repeat",
@@ -21,6 +15,31 @@
       "comment": "a co tam",
       "frequencyNumber": 6,
       "frequencyUnit": "years"
+    },
+    {
+      "id": 6,
+      "title": "Nowy obowiązek ",
+      "frequency": "repeat",
+      "dateStart": "Fri Jan 14 2022 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "ważny",
+      "frequencyNumber": 5,
+      "frequencyUnit": "years"
+    },
+    {
+      "id": 7,
+      "title": "update",
+      "frequency": "oneTime",
+      "dateStart": "Sat Nov 20 2021 13:27:12 GMT+0100 (Central European Standard Time)",
+      "comment": "djafoijdeorfaije"
+    },
+    {
+      "id": 8,
+      "title": "Bieznia",
+      "frequency": "repeat",
+      "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "dfa",
+      "frequencyNumber": 4,
+      "frequencyUnit": "months"
     }
   ]
 }

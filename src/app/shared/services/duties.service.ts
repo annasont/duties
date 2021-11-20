@@ -13,7 +13,7 @@ const BASE_URL = 'http://localhost:3000/'
 export class DutiesService {
   private model = 'duties'
 
-  emptyDuty = {
+  private emptyDuty = {
     id: 0,
     title: '',
     frequency: Frequency.oneTime,
@@ -22,7 +22,7 @@ export class DutiesService {
 
   currentDuty: Duty = this.emptyDuty
 
-  optionsFrequency = [
+  private optionsFrequency = [
     {
       name: 'one-time',
       value: Frequency.oneTime
@@ -33,7 +33,7 @@ export class DutiesService {
     }
   ]
 
-  optionsFrequencyUnit = [
+  private optionsFrequencyUnit = [
     {
       name: 'week(s)',
       value: FrequencyUnit.weeks
@@ -47,7 +47,6 @@ export class DutiesService {
       value: FrequencyUnit.years
     }
   ]
-
 
   constructor(private http:HttpClient) { }
 
@@ -82,11 +81,11 @@ export class DutiesService {
 
   }
 
-  getUrl() {
+  private getUrl() {
     return `${BASE_URL}${this.model}`
   }
 
-  getUrlById(duty: Duty) {
+  private getUrlById(duty: Duty) {
     return `${this.getUrl()}/${duty.id}`
   }
 
