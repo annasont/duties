@@ -13,15 +13,6 @@ const BASE_URL = 'http://localhost:3000/'
 export class DutiesService {
   private model = 'duties'
 
-  private emptyDuty = {
-    id: 0,
-    title: '',
-    frequency: Frequency.oneTime,
-    dateStart: new Date().toString(),
-  }
-
-  currentDuty: Duty = this.emptyDuty
-
   private optionsFrequency = [
     {
       name: 'one-time',

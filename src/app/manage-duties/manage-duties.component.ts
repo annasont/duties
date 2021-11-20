@@ -71,14 +71,12 @@ export class ManageDutiesComponent implements OnInit {
         result => this. refreshDuties(), 
         error => console.log(`saveDuty create error`, error)
       );
-
     } else {
       this.dutiesService.update(duty)
       .subscribe(
         result => this. refreshDuties(),
         error => console.log(`saveDuty update error`, error)
       );
-
     }
   }
 
