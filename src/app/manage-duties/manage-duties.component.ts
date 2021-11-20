@@ -46,7 +46,6 @@ export class ManageDutiesComponent implements OnInit {
     this.date = new Date(duty.dateStart);
   }
 
-  
   resetSelectedDuty() {
     const emptyDuty = {
       id: 0,
@@ -55,6 +54,10 @@ export class ManageDutiesComponent implements OnInit {
       dateStart: new Date().toString(),
     }
     this.currentDuty = emptyDuty
+  }
+
+  cancel() {
+    this.resetSelectedDuty()
   }
 
   updateDate(date: Date) {
@@ -66,24 +69,24 @@ export class ManageDutiesComponent implements OnInit {
       this.dutiesService.create(duty)
       .subscribe(
         result => this.loadDuties(), 
-        error => console.log(`saveDuty error`, error)
+        error => console.log(`saveDuty create error`, error)
       );
     } else {
       this.dutiesService.update(duty)
       .subscribe(
-        result => console.log("Updated!", result),
-        error => console.log(`saveDuty error`, error)
+        result => this.loadDuties(),
+        error => console.log(`saveDuty update error`, error)
       )
     }
   }
 
-  cancel() {
-    this.resetSelectedDuty()
-  }
-
   delete(duty: Duty) {
     this.selectDuty(duty);
-    this.dutiesService.delete(duty.id)
+    this.dutiesService.delete(duty)
+    .subscribe(
+      result => this.loadDuties(),
+      error => console.log(`delete error`, error)
+    );
   }
 
   

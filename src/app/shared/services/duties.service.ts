@@ -63,9 +63,9 @@ export class DutiesService {
     return this.optionsFrequencyUnit
   }
 
-  find(dutyId: number) {
+  // find(dutyId: number) {
 
-  }
+  // }
 
   create(duty: Duty){
     return this.http.post<Duty[]>(this.getUrl(), duty)
@@ -77,8 +77,8 @@ export class DutiesService {
 
   }
 
-  delete(dutyId: number){
-    console.log('deleted', dutyId)
+  delete(duty: Duty){
+    return this.http.delete(this.getUrlById(duty))
 
   }
 
