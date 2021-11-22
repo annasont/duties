@@ -19,6 +19,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DutiesService } from './shared/services/duties.service';
 import { DutiesListComponent } from './manage-duties/duties-list/duties-list.component';
 import { DutyDetailsComponent } from './manage-duties/duty-details/duty-details.component';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { DutyDetailsComponent } from './manage-duties/duty-details/duty-details.
     CalendarModule,
     InputNumberModule,
     HttpClientModule,
+    AccordionModule,
   ],
   providers: [DutiesService],
   bootstrap: [AppComponent]

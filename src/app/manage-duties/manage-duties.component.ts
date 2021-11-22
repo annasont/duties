@@ -25,21 +25,21 @@ export class ManageDutiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedDuty();
-    this.loadDuties();
+    this.loadDutiesByTitle();
     this.optionsFrequency = this.dutiesService.getOptionsFrequency();
     this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();
   }
 
-  loadDuties() {
+  loadDutiesByTitle() {
     this.dutiesService.all().subscribe(
       (duties) => this.duties = duties.sort(function(a: Duty, b: Duty){
       let textA: string = a.title.toUpperCase();
       let textB: string = b.title.toUpperCase();
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     }),
-      (error) => console.log(`loadDuties error`, error)
+      (error) => console.log(`loadDutiesByTitile error`, error)
     );
-  }
+  } 
 
   selectDuty(duty: Duty) {
     this.currentDuty = duty;
@@ -81,7 +81,7 @@ export class ManageDutiesComponent implements OnInit {
   }
 
   refreshDuties() {
-    this.loadDuties();
+    this.loadDutiesByTitle();
     this.resetSelectedDuty();
   }
 
