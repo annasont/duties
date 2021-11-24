@@ -19,3 +19,8 @@ export enum FrequencyUnit {
     months = 'months',
     years = 'years',
   }
+
+export interface Week {
+  monday: Date,
+  sunday: Date
+}

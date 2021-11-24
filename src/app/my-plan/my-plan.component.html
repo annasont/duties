@@ -1,6 +1,6 @@
 <div class="p-grid">
     <div class="p-col">
-        <p-card header="My plan">
+        <p-card header="My plan for a mon">
 
             <p-accordion [multiple]="true" *ngFor="let week of weeks">
                 <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
@@ -8,18 +8,10 @@
 
                         <ng-template pTemplate="body" let-duty let-expanded="expanded">
                             <tr>
-                            <!-- <td class="short alignTop">
-                                <button *ngIf="duty.comment" type="button" pButton pRipple [pRowToggler]="duty" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-                            </td> -->
                             <td>
                                 <p>{{duty.title}}</p>
                                 <p class="medium">
-                                <!-- <i class="pi pi-calendar medium"></i> &nbsp; 
-                                {{ duty.dateStart | date }} &nbsp; -->
-                                <!-- <p class="medium" *ngIf="duty.frequencyNumber">
-                                <i class="pi pi-replay medium"></i> &nbsp;
-                                Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
-                                </p> -->
+                       
                             </td>
                             <td class="alignTop">
                                 <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain"><i class="pi pi-pencil"></i></button> 
@@ -36,6 +28,8 @@
         </p-card>
     </div>
 </div>
-<p></p>
-<p></p> 
 
+
+
+<p> {{ weeks | json }} </p>
+<p></p> 
