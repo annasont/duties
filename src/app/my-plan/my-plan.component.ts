@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { Duty, Week } from '../shared/interfaces';
+import { Duty, Week, Frequency } from '../shared/interfaces';
+import { TestBed } from '@angular/core/testing';
 
 
 @Component({
@@ -13,7 +14,31 @@ export class MyPlanComponent implements OnInit {
   duties: Duty[] = []
   lastMonday = this.getMonday(new Date())
   sunday = this.getSunday(this.lastMonday)
-  weeks = this.loadCurrentWeeks();
+  // weeks = this.loadCurrentWeeks();
+  weeks = [
+    {
+      monday: new Date,
+      sunday: new Date,
+      duties: [
+        { 
+          id: 1,
+          title: 'Pierwszy',
+          frequency: Frequency.oneTime,
+          dateStart: new Date().toString(),
+        },
+        {
+          id: 2,
+          title: 'Drugi',
+          frequency: Frequency.oneTime,
+          dateStart: new Date().toString(),
+        }
+      ]
+    }
+  ]
+
+  test = this.newf()
+
+ 
 
   constructor(private dutiesService: DutiesService) { }
 
@@ -32,6 +57,16 @@ export class MyPlanComponent implements OnInit {
     );
   }
 
+  newf(){
+    let sortedDuties = [];
+    for (let duty of this.duties) {
+      let dateFormat: Date = new Date(duty.dateStart)
+      if (dateFormat < this.lastMonday) {
+        sortedDuties.push(duty)
+      }
+    }
+    return sortedDuties;
+  }
 
   getMonday(d: Date) {
     d = new Date(d);
@@ -47,38 +82,38 @@ export class MyPlanComponent implements OnInit {
   }
 
 
-  loadCurrentWeeks(): Week[] {
-    let mon = this.getMonday(new Date());
-    let sun = this.getSunday(mon);
+  // loadCurrentWeeks(): Week[] {
+  //   let mon = this.getMonday(new Date());
+  //   let sun = this.getSunday(mon);
 
-    let weeks = [
-      {
-        monday: mon,
-        sunday: sun
-      }
-    ]
+  //   let weeks = [
+  //     {
+  //       monday: mon,
+  //       sunday: sun
+  //     }
+  //   ]
 
-    let x = 0
-    while (x < 3) {
-      let d1 = new Date(mon);
-      let d2 = new Date(sun);
-      let diff1 = d1.getDate() + 7;
-      let diff2 = d2.getDate() + 7;
-      mon = new Date(d1.setDate(diff1));
-      sun = new Date(d2.setDate(diff2));
+  //   let x = 0
+  //   while (x < 3) {
+  //     let d1 = new Date(mon);
+  //     let d2 = new Date(sun);
+  //     let diff1 = d1.getDate() + 7;
+  //     let diff2 = d2.getDate() + 7;
+  //     mon = new Date(d1.setDate(diff1));
+  //     sun = new Date(d2.setDate(diff2));
 
-      weeks.push(
-        {
-        monday: mon,
-        sunday: sun,
-        }
-      );
+  //     weeks.push(
+  //       {
+  //       monday: mon,
+  //       sunday: sun,
+  //       }
+  //     );
 
-      x++;
-    } 
+  //     x++;
+  //   } 
     
-    return weeks
-  }
+  //   return weeks
+  // }
 
 
 }

@@ -1,10 +1,10 @@
 <div class="p-grid">
     <div class="p-col">
-        <p-card header="My plan for a mon">
+        <p-card header="My plan for a month">
 
             <p-accordion [multiple]="true" *ngFor="let week of weeks">
                 <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
-                    <p-table [value]="duties" dataKey="id"> 
+                    <p-table [value]="week.duties" dataKey="id"> 
 
                         <ng-template pTemplate="body" let-duty let-expanded="expanded">
                             <tr>
@@ -18,7 +18,7 @@
                                 <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain"><i class="pi pi-trash"></i></button>
                             </td>
                             </tr>
-                    
+                            
                         </ng-template>
                     </p-table>
                 </p-accordionTab>
@@ -31,5 +31,5 @@
 
 
 
-<p> {{ weeks | json }} </p>
+<p> {{ test | json }} </p>
 <p></p> 

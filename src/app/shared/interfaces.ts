@@ -22,5 +22,6 @@ export enum FrequencyUnit {
 
 export interface Week {
   monday: Date,
-  sunday: Date
+  sunday: Date,
+  duties: Duty[]
 }
