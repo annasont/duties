@@ -1,9 +1,9 @@
 <div class="p-grid">
     <div class="p-col">
         <p-card header="My plan">
-            
-            <p-accordion [multiple]="true">
-                <p-accordionTab header="{{lastMonday | date}}–{{sunday | date}}">
+
+            <p-accordion [multiple]="true" *ngFor="let week of weeks">
+                <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
                     <p-table [value]="duties" dataKey="id"> 
 
                         <ng-template pTemplate="body" let-duty let-expanded="expanded">
@@ -30,12 +30,7 @@
                         </ng-template>
                     </p-table>
                 </p-accordionTab>
-                <p-accordionTab header="Header 2">
-                    Content 2
-                </p-accordionTab>
-                <p-accordionTab header="Header 3">
-                    Content 3    
-                </p-accordionTab>
+               
             </p-accordion>
 
         </p-card>
