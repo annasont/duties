@@ -81,11 +81,11 @@ export class MyPlanComponent implements OnInit {
   }
 
 
-  sortDutiesByWeeks(duties: Duty[]): Duty[]{
+  sortDutiesByWeeks(duties: Duty[], monday: Date, sunday: Date): Duty[]{
     let sortedDuties = [];
     for (let duty of duties) {
       let dateFormat: Date = new Date(duty.dateStart)
-      if (dateFormat > this.lastMonday && dateFormat <= this.sunday) {
+      if (dateFormat > monday && dateFormat <= sunday) {
         sortedDuties.push(duty)
       }
     }
@@ -111,7 +111,7 @@ export class MyPlanComponent implements OnInit {
       let diff2 = d2.getDate() + 7;
       mon = new Date(d1.setDate(diff1));
       sun = new Date(d2.setDate(diff2));
-      let sortedDuties = this.sortDutiesByWeeks(duties)
+      let sortedDuties = this.sortDutiesByWeeks(duties, mon, sun)
 
       if (sortedDuties.length != 0) {
         weeks.push(
