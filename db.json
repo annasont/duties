@@ -41,6 +41,36 @@
       "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 2,
       "frequencyUnit": "months"
+    },
+    {
+      "id": 12,
+      "title": "Ten tydzien",
+      "frequency": "oneTime",
+      "dateStart": "Sat Nov 27 2021 00:00:00 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 13,
+      "title": "Następny tydzień",
+      "frequency": "repeat",
+      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "Oby dzialalo!",
+      "frequencyNumber": 5
+    },
+    {
+      "id": 14,
+      "title": "trzeci tydzien",
+      "frequency": "oneTime",
+      "dateStart": "Tue Dec 07 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "dfa"
+    },
+    {
+      "id": 15,
+      "title": "Jeszcze raz trzeci tydzień",
+      "frequency": "repeat",
+      "dateStart": "Wed Dec 08 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "Czy to wyjdzie ojojoj",
+      "frequencyNumber": 3,
+      "frequencyUnit": "years"
     }
   ]
 }

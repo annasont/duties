@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
 import { Duty, Week, Frequency } from '../shared/interfaces';
-import { TestBed } from '@angular/core/testing';
 
 
 @Component({
@@ -14,31 +13,32 @@ export class MyPlanComponent implements OnInit {
   duties: Duty[] = []
   lastMonday = this.getMonday(new Date())
   sunday = this.getSunday(this.lastMonday)
-  // weeks = this.loadCurrentWeeks();
-  weeks = [
-    {
-      monday: new Date,
-      sunday: new Date,
-      duties: [
-        { 
-          id: 1,
-          title: 'Pierwszy',
-          frequency: Frequency.oneTime,
-          dateStart: new Date().toString(),
-        },
-        {
-          id: 2,
-          title: 'Drugi',
-          frequency: Frequency.oneTime,
-          dateStart: new Date().toString(),
-        }
-      ]
-    }
-  ]
+  weeks: Week[] = [];
+  // weeks = [
+  //   {
+  //     monday: new Date,
+  //     sunday: new Date,
+  //     duties: [
+  //       { 
+  //         id: 1,
+  //         title: 'Pierwszy',
+  //         frequency: Frequency.oneTime,
+  //         dateStart: new Date().toString(),
+  //       },
+  //       {
+  //         id: 2,
+  //         title: 'Drugi',
+  //         frequency: Frequency.oneTime,
+  //         dateStart: new Date().toString(),
+  //       }
+  //     ]
+  //   }
+  // ]
 
-  test = this.newf()
+  mon = this.getMonday(new Date());
+  // diff1 = this.mon.getDate() - 7;
+  // mon2 = new Date(this.mon.setDate(this.diff1));
 
- 
 
   constructor(private dutiesService: DutiesService) { }
 
@@ -46,26 +46,25 @@ export class MyPlanComponent implements OnInit {
     this.loadDutiesByDate();
   }
 
-  loadDutiesByDate() {
-    this.dutiesService.all().subscribe(
-      (duties) => this.duties = duties.sort(function(a: Duty, b: Duty){
-      let dateA: string = a.dateStart;
-      let dateB: string = b.dateStart;
-      return (dateA < dateB) ? -1 : (dateA > dateB) ? 1 : 0;
-    }),
-      (error) => console.log(`loadDutiesByDate error`, error)
-    );
+  sortByDate(duties: Duty[]) {
+    return duties.sort(
+      function(a: Duty, b: Duty){
+        let dateA: string = a.dateStart;
+        let dateB: string = b.dateStart;
+        return (dateA < dateB) ? -1 : (dateA > dateB) ? 1 : 0;
+      }
+    )
   }
 
-  newf(){
-    let sortedDuties = [];
-    for (let duty of this.duties) {
-      let dateFormat: Date = new Date(duty.dateStart)
-      if (dateFormat < this.lastMonday) {
-        sortedDuties.push(duty)
-      }
-    }
-    return sortedDuties;
+  loadDutiesByDate() {
+    this.dutiesService.all().subscribe(
+      (duties) => 
+      { 
+        this.duties = this.sortByDate(duties);
+        this.weeks = this.loadCurrentWeeks(this.duties);
+      },
+      (error) => console.log(`loadDutiesByDate error`, error)
+    );
   }
 
   getMonday(d: Date) {
@@ -82,38 +81,58 @@ export class MyPlanComponent implements OnInit {
   }
 
 
-  // loadCurrentWeeks(): Week[] {
-  //   let mon = this.getMonday(new Date());
-  //   let sun = this.getSunday(mon);
+  sortDutiesByWeeks(duties: Duty[]): Duty[]{
+    let sortedDuties = [];
+    for (let duty of duties) {
+      let dateFormat: Date = new Date(duty.dateStart)
+      if (dateFormat > this.lastMonday && dateFormat <= this.sunday) {
+        sortedDuties.push(duty)
+      }
+    }
+    return sortedDuties
+  }
 
-  //   let weeks = [
-  //     {
-  //       monday: mon,
-  //       sunday: sun
-  //     }
-  //   ]
+  loadCurrentWeeks(duties: Duty[]): Week[] {
+    let mon = this.getMonday(new Date());
+    let sun = this.getSunday(mon);
+    let d1 = new Date(mon);
+    let d2 = new Date(sun);
+    let diff1 = d1.getDate() - 7;
+    let diff2 = d2.getDate() - 7;
+    mon = new Date(d1.setDate(diff1));
+    sun = new Date(d2.setDate(diff2));
+    let weeks: Week[] = []
 
-  //   let x = 0
-  //   while (x < 3) {
-  //     let d1 = new Date(mon);
-  //     let d2 = new Date(sun);
-  //     let diff1 = d1.getDate() + 7;
-  //     let diff2 = d2.getDate() + 7;
-  //     mon = new Date(d1.setDate(diff1));
-  //     sun = new Date(d2.setDate(diff2));
+    let x = 0
+    while (x < 4) {
+      let d1 = new Date(mon);
+      let d2 = new Date(sun);
+      let diff1 = d1.getDate() + 7;
+      let diff2 = d2.getDate() + 7;
+      mon = new Date(d1.setDate(diff1));
+      sun = new Date(d2.setDate(diff2));
+      let sortedDuties = this.sortDutiesByWeeks(duties)
 
-  //     weeks.push(
-  //       {
-  //       monday: mon,
-  //       sunday: sun,
-  //       }
-  //     );
+      if (sortedDuties.length != 0) {
+        weeks.push(
+          {
+          monday: mon,
+          sunday: sun,
+          duties: sortedDuties
+          }
+        )
+      } else {
+        weeks.push(
+          {
+          monday: mon,
+          sunday: sun
+          }
+        )
+      };
 
-  //     x++;
-  //   } 
-    
-  //   return weeks
-  // }
-
-
+      x++;
+    } 
+    return weeks
+  }
+  
 }
