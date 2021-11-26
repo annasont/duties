@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
 import { Duty, Week, Frequency } from '../shared/interfaces';
 
-
 @Component({
   selector: 'app-my-plan',
   templateUrl: './my-plan.component.html',
@@ -14,31 +13,6 @@ export class MyPlanComponent implements OnInit {
   lastMonday = this.getMonday(new Date())
   sunday = this.getSunday(this.lastMonday)
   weeks: Week[] = [];
-  // weeks = [
-  //   {
-  //     monday: new Date,
-  //     sunday: new Date,
-  //     duties: [
-  //       { 
-  //         id: 1,
-  //         title: 'Pierwszy',
-  //         frequency: Frequency.oneTime,
-  //         dateStart: new Date().toString(),
-  //       },
-  //       {
-  //         id: 2,
-  //         title: 'Drugi',
-  //         frequency: Frequency.oneTime,
-  //         dateStart: new Date().toString(),
-  //       }
-  //     ]
-  //   }
-  // ]
-
-  mon = this.getMonday(new Date());
-  // diff1 = this.mon.getDate() - 7;
-  // mon2 = new Date(this.mon.setDate(this.diff1));
-
 
   constructor(private dutiesService: DutiesService) { }
 
@@ -95,20 +69,14 @@ export class MyPlanComponent implements OnInit {
   loadCurrentWeeks(duties: Duty[]): Week[] {
     let mon = this.getMonday(new Date());
     let sun = this.getSunday(mon);
-    let d1 = new Date(mon);
-    let d2 = new Date(sun);
-    let diff1 = d1.getDate() - 7;
-    let diff2 = d2.getDate() - 7;
-    mon = new Date(d1.setDate(diff1));
-    sun = new Date(d2.setDate(diff2));
     let weeks: Week[] = []
 
     let x = 0
     while (x < 4) {
       let d1 = new Date(mon);
       let d2 = new Date(sun);
-      let diff1 = d1.getDate() + 7;
-      let diff2 = d2.getDate() + 7;
+      let diff1 = d1.getDate();
+      let diff2 = d2.getDate();
       mon = new Date(d1.setDate(diff1));
       sun = new Date(d2.setDate(diff2));
       let sortedDuties = this.sortDutiesByWeeks(duties, mon, sun)
@@ -131,6 +99,10 @@ export class MyPlanComponent implements OnInit {
       };
 
       x++;
+      diff1 = d1.getDate() + 7;
+      diff2 = d2.getDate() + 7;
+      mon = new Date(d1.setDate(diff1));
+      sun = new Date(d2.setDate(diff2));
     } 
     return weeks
   }

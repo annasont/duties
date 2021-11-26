@@ -10,7 +10,7 @@
                             <tr>
                             <td>
                                 <p>{{duty.title}}</p>
-                                <p class="medium">
+                                <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
                        
                             </td>
                             <td class="alignTop">

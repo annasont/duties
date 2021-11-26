@@ -10,15 +10,6 @@
       "frequencyUnit": "years"
     },
     {
-      "id": 8,
-      "title": "Bieznia i co dalej",
-      "frequency": "repeat",
-      "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "dfa",
-      "frequencyNumber": 4,
-      "frequencyUnit": "months"
-    },
-    {
       "id": 9,
       "title": "cos nowego",
       "frequency": "repeat",
