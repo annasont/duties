@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { Duty, Week, Frequency } from '../shared/interfaces';
+import { Duty, Week, Frequency, FrequencyUnit } from '../shared/interfaces';
 
 @Component({
   selector: 'app-my-plan',
@@ -12,7 +12,7 @@ export class MyPlanComponent implements OnInit {
   duties: Duty[] = []
   lastMonday = this.getMonday(new Date())
   sunday = this.getSunday(this.lastMonday)
-  weeks: Week[] = [];
+  fourWeeks: Week[] = [];
 
   constructor(private dutiesService: DutiesService) { }
 
@@ -20,22 +20,23 @@ export class MyPlanComponent implements OnInit {
     this.loadDutiesByDate();
   }
 
-  sortByDate(duties: Duty[]) {
-    return duties.sort(
-      function(a: Duty, b: Duty){
-        let dateA: string = a.dateStart;
-        let dateB: string = b.dateStart;
-        return (dateA < dateB) ? -1 : (dateA > dateB) ? 1 : 0;
-      }
-    )
-  }
+  // sortByDate(duties: Duty[]) {
+  //   return duties.sort(
+  //     function(a: Duty, b: Duty){
+  //       let dateA: string = a.dateStart;
+  //       let dateB: string = b.dateStart;
+  //       return (dateA < dateB) ? -1 : (dateA > dateB) ? 1 : 0;
+  //     }
+  //   )
+  // }
 
   loadDutiesByDate() {
     this.dutiesService.all().subscribe(
       (duties) => 
       { 
-        this.duties = this.sortByDate(duties);
-        this.weeks = this.loadCurrentWeeks(this.duties);
+        // this.duties = this.sortByDate(duties);
+        this.duties = this.duplicateRepeatableDuties(duties)
+        this.fourWeeks = this.loadCurrentWeeks(this.duties);
       },
       (error) => console.log(`loadDutiesByDate error`, error)
     );
@@ -69,7 +70,7 @@ export class MyPlanComponent implements OnInit {
   loadCurrentWeeks(duties: Duty[]): Week[] {
     let mon = this.getMonday(new Date());
     let sun = this.getSunday(mon);
-    let weeks: Week[] = []
+    let fourWeeks: Week[] = []
 
     let x = 0
     while (x < 4) {
@@ -82,7 +83,7 @@ export class MyPlanComponent implements OnInit {
       let sortedDuties = this.sortDutiesByWeeks(duties, mon, sun)
 
       if (sortedDuties.length != 0) {
-        weeks.push(
+        fourWeeks.push(
           {
           monday: mon,
           sunday: sun,
@@ -90,7 +91,7 @@ export class MyPlanComponent implements OnInit {
           }
         )
       } else {
-        weeks.push(
+        fourWeeks.push(
           {
           monday: mon,
           sunday: sun
@@ -104,7 +105,66 @@ export class MyPlanComponent implements OnInit {
       mon = new Date(d1.setDate(diff1));
       sun = new Date(d2.setDate(diff2));
     } 
-    return weeks
+    return fourWeeks
   }
+
+  repeatWeeks(x: Date, duty: Duty, in5years: Date): Duty[] {
+    let repeatedWeeklyDuties: Duty[] = []
+    if (duty.frequencyNumber) {
+      let year = x.getFullYear();
+      let month = x.getMonth();
+      let day = x.getDate();
+      while (x < in5years) {
+        if (duty.comment) {
+          repeatedWeeklyDuties.push({
+            id: 0,
+            title: duty.title,
+            frequency: duty.frequency,
+            frequencyUnit: duty.frequencyUnit,
+            dateStart: x.toString(),
+            frequencyNumber: duty.frequencyNumber,
+            comment: duty.comment
+          })
+        } else {
+          repeatedWeeklyDuties.push({
+            id: 0,
+            title: duty.title,
+            frequency: duty.frequency,
+            frequencyUnit: duty.frequencyUnit,
+            dateStart: x.toString(),
+            frequencyNumber: duty.frequencyNumber,
+          })
+        }
+        day += 7 * duty.frequencyNumber
+        x = new Date (year, month, day)
+      } 
+    }
+    return repeatedWeeklyDuties
+  }
+
+
+  duplicateRepeatableDuties(duties: Duty[]) {
+    let repeatedWeeklyDuties: Duty[] = []
+    for (let duty of duties) {
+      if (duty.frequencyNumber) {
+        let firstOccurene = new Date(duty.dateStart)
+        let d = new Date(firstOccurene)
+        let year = d.getFullYear();
+        let month = d.getMonth();
+        let day = d.getDate();
+        let in5years = new Date(year + 5, month, day)
+        
+        if (duty.frequencyUnit == FrequencyUnit.weeks) {
+          let x = new Date (year, month, day + 7 * duty.frequencyNumber) 
+          repeatedWeeklyDuties = this.repeatWeeks(x, duty, in5years)   
+          }
+      }
+    } 
+    for (let duty of repeatedWeeklyDuties) {
+      duties.push(duty)
+    }
+    return duties
+  }
+
   
 }

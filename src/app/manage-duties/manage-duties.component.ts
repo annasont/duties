@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { Duty, Frequency } from '../shared/interfaces';
+import { Duty, Frequency, FrequencyUnit } from '../shared/interfaces';
 
 @Component({ 
   selector: 'app-manage-duties',
@@ -11,26 +11,22 @@ import { Duty, Frequency } from '../shared/interfaces';
 export class ManageDutiesComponent implements OnInit {
 
   duties:Duty[] = []
-  currentDuty:Duty = {
-    id: 0,
-    title: '',
-    frequency: Frequency.oneTime,
-    dateStart: new Date().toString(),
-  }
+  currentDuty: Duty;
   date: Date | undefined;
   optionsFrequency = [{}]
   optionsFrequencyUnit = [{}]
 
-  constructor(private dutiesService: DutiesService) { }
+  constructor(private dutiesService: DutiesService) { 
+   this.currentDuty = this.createEmptyDuty();
+  }
 
   ngOnInit(): void {
-    this.resetSelectedDuty();
     this.loadDutiesByTitle();
     this.optionsFrequency = this.dutiesService.getOptionsFrequency();
     this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();
   }
 
-  loadDutiesByTitle() {
+  private loadDutiesByTitle() {
     this.dutiesService.all().subscribe(
       (duties) => this.duties = duties.sort(function(a: Duty, b: Duty){
       let textA: string = a.title.toUpperCase();
@@ -46,21 +42,28 @@ export class ManageDutiesComponent implements OnInit {
     this.date = new Date(duty.dateStart);
   }
 
-  resetSelectedDuty() {
-    const emptyDuty = {
+  private createEmptyDuty(): Duty {
+    return {
       id: 0,
       title: '',
       frequency: Frequency.oneTime,
+      frequencyUnit: FrequencyUnit.weeks,
       dateStart: new Date().toString(),
     }
-    this.currentDuty = emptyDuty
   }
 
   cancel() {
     this.resetSelectedDuty()
   }
 
+  private resetSelectedDuty() {
+    this.currentDuty = this.createEmptyDuty()
+  }
+
   updateDate(date: Date) {
+    if (!this.currentDuty) { 
+      throw new Error('Missing current duty');
+    }
     this.currentDuty.dateStart = date.toString()
   }
 
@@ -80,7 +83,7 @@ export class ManageDutiesComponent implements OnInit {
     }
   }
 
-  refreshDuties() {
+  private refreshDuties() {
     this.loadDutiesByTitle();
     this.resetSelectedDuty();
   }
@@ -93,7 +96,4 @@ export class ManageDutiesComponent implements OnInit {
       error => console.log(`delete error`, error)
     );
   }
-
-  
-
 }

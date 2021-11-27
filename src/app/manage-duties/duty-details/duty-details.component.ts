@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Duty, Frequency } from '../../shared/interfaces';
+import { Duty, Frequency, FrequencyUnit } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-duty-details',
@@ -8,12 +8,7 @@ import { Duty, Frequency } from '../../shared/interfaces';
 })
 export class DutyDetailsComponent implements OnInit {
 
-  @Input() currentDuty:Duty = {
-    id: 0,
-    title: '',
-    frequency: Frequency.oneTime,
-    dateStart: new Date().toString(),
-  }; 
+  @Input() currentDuty: Duty | undefined;
   @Input() optionsFrequency = [{}];
   @Input() optionsFrequencyUnit = [{}];
   @Input() date: Date | undefined;

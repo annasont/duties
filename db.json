@@ -40,14 +40,6 @@
       "dateStart": "Sat Nov 27 2021 00:00:00 GMT+0100 (Central European Standard Time)"
     },
     {
-      "id": 13,
-      "title": "Następny tydzień",
-      "frequency": "repeat",
-      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "Oby dzialalo!",
-      "frequencyNumber": 5
-    },
-    {
       "id": 14,
       "title": "trzeci tydzien",
       "frequency": "oneTime",
@@ -62,6 +54,31 @@
       "comment": "Czy to wyjdzie ojojoj",
       "frequencyNumber": 3,
       "frequencyUnit": "years"
+    },
+    {
+      "id": 17,
+      "title": "jakies",
+      "frequency": "repeat",
+      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "Oby dzialalo!",
+      "frequencyNumber": 3,
+      "frequencyUnit": "weeks"
+    },
+    {
+      "id": 20,
+      "title": "vvv",
+      "frequency": "repeat",
+      "dateStart": "Sat Nov 27 2021 17:58:42 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 5,
+      "frequencyUnit": "months"
+    },
+    {
+      "id": 21,
+      "title": "Co tydzień",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Sat Nov 27 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 1
     }
   ]
 }

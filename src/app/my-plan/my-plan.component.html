@@ -2,7 +2,7 @@
     <div class="p-col">
         <p-card header="My plan for a month">
 
-            <p-accordion [multiple]="true" *ngFor="let week of weeks">
+            <p-accordion [multiple]="true" *ngFor="let week of fourWeeks">
                 <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
                     <p-table *ngIf="week.duties; else ooops" [value]="week.duties" dataKey="id"> 
 
@@ -11,7 +11,14 @@
                             <td>
                                 <p>{{duty.title}}</p>
                                 <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
-                       
+                            </td>
+                            <td>
+                                <i class="pi pi-calendar"></i> 
+                                {{ duty.dateStart | date }} 
+                                <p class="medium" *ngIf="duty.frequencyNumber">
+                                    <i class="pi pi-replay medium"></i> &nbsp;
+                                    Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
+                                </p>
                             </td>
                             <td class="alignTop">
                                 <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain"><i class="pi pi-pencil"></i></button> 
@@ -30,5 +37,6 @@
     </div>
 </div>
 
-
+<!-- {{ tescik | json }}
+ -->
 
