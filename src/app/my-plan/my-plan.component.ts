@@ -146,7 +146,9 @@ export class MyPlanComponent implements OnInit {
     d = new Date(d);
     let day = d.getDay();
     let diff = d.getDate() - day + (day == 0 ? -6:1); 
-    return new Date(d.setDate(diff));
+    let monday = new Date(d.setDate(diff));
+    monday.setHours(0,0,0,0)
+    return monday;
   }
 
   getSunday(d: Date) {
@@ -159,7 +161,7 @@ export class MyPlanComponent implements OnInit {
     let sortedDuties = [];
     for (let duty of duties) {
       let dateFormat: Date = new Date(duty.dateStart)
-      if (dateFormat > monday && dateFormat <= sunday) {
+      if (dateFormat >= monday && dateFormat <= sunday) {
         sortedDuties.push(duty)
       }
     }
@@ -176,4 +178,19 @@ export class MyPlanComponent implements OnInit {
     )
   }
 
+  test(){
+    let dateFormat = new Date("Mon Nov 22 2021 21:00:00 GMT+0100");
+    let monday = new Date("Mon Nov 22 2021 20:48:06 GMT+0100");
+    let sun = new Date("Sun Nov 28 2021 20:48:06 GMT+0100");
+    let respons = ''
+
+    if (dateFormat >= monday && dateFormat <= sun){
+      respons = 'Ok'
+    } else {
+      respons = 'nope'
+    }
+    return respons
+  }
+
+  tescik = this.test()
 }
