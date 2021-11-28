@@ -88,6 +88,15 @@
       "dateStart": "Fri Nov 26 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "comment": "cos",
       "frequencyNumber": 1
+    },
+    {
+      "id": 23,
+      "title": "Raz na miesiąc",
+      "frequency": "repeat",
+      "frequencyUnit": "months",
+      "dateStart": "Mon Nov 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "To zrobię raz w miesiącu",
+      "frequencyNumber": 1
     }
   ]
 }
