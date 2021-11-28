@@ -4,11 +4,11 @@
 
             <p-accordion [multiple]="true" *ngFor="let week of fourWeeks">
                 <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
-                    <p-table *ngIf="week.duties; else ooops" [value]="week.duties" dataKey="id"> 
+                    <p-table *ngIf="week.duties; else noDuties" [value]="week.duties" dataKey="id"> 
 
                         <ng-template pTemplate="body" let-duty let-expanded="expanded">
                             <tr>
-                            <td>
+                            <td class="width50">
                                 <p>{{duty.title}}</p>
                                 <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
                             </td>
@@ -28,7 +28,7 @@
                             
                         </ng-template>
                     </p-table>
-                    <ng-template #ooops><p>No duties this week!</p></ng-template>
+                    <ng-template #noDuties><p>No duties this week!</p></ng-template>
                 </p-accordionTab>
                
             </p-accordion>
