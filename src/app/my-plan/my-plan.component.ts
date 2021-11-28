@@ -35,8 +35,8 @@ export class MyPlanComponent implements OnInit {
       (duties) => 
       { 
         // this.duties = this.sortByDate(duties);
-        this.duties = this.duplicateRepeatableDuties(duties)
-        this.fourWeeks = this.loadCurrentWeeks(this.duties);
+        this.duties =this.duplicateRepeatableDuties(duties)
+        this.fourWeeks = this.loadCurrentWeeks(duties);
       },
       (error) => console.log(`loadDutiesByDate error`, error)
     );
@@ -108,12 +108,9 @@ export class MyPlanComponent implements OnInit {
     return fourWeeks
   }
 
-  repeatWeeks(x: Date, duty: Duty, in5years: Date): Duty[] {
+  addDuties(x: Date, in5years: Date, duty: Duty, day: number, year: number, month: number, unit: number): Duty[]{
     let repeatedWeeklyDuties: Duty[] = []
     if (duty.frequencyNumber) {
-      let year = x.getFullYear();
-      let month = x.getMonth();
-      let day = x.getDate();
       while (x < in5years) {
         if (duty.comment) {
           repeatedWeeklyDuties.push({
@@ -135,14 +132,47 @@ export class MyPlanComponent implements OnInit {
             frequencyNumber: duty.frequencyNumber,
           })
         }
-        day += 7 * duty.frequencyNumber
+        day += unit * duty.frequencyNumber
         x = new Date (year, month, day)
       } 
     }
     return repeatedWeeklyDuties
   }
 
-
+  repeatWeeks(x: Date, duty: Duty, in5years: Date): Duty[] {
+    let repeatedWeeklyDuties: Duty[] = []
+    if (duty.frequencyNumber) {
+      let year = x.getFullYear();
+      let month = x.getMonth();
+      let day = x.getDate();
+      repeatedWeeklyDuties = this.addDuties(x, in5years, duty, day, year, month, 7)
+      // while (x < in5years) {
+      //   if (duty.comment) {
+      //     repeatedWeeklyDuties.push({
+      //       id: 0,
+      //       title: duty.title,
+      //       frequency: duty.frequency,
+      //       frequencyUnit: duty.frequencyUnit,
+      //       dateStart: x.toString(),
+      //       frequencyNumber: duty.frequencyNumber,
+      //       comment: duty.comment
+      //     })
+      //   } else {
+      //     repeatedWeeklyDuties.push({
+      //       id: 0,
+      //       title: duty.title,
+      //       frequency: duty.frequency,
+      //       frequencyUnit: duty.frequencyUnit,
+      //       dateStart: x.toString(),
+      //       frequencyNumber: duty.frequencyNumber,
+      //     })
+      //   }
+      //   day += 7 * duty.frequencyNumber
+      //   x = new Date (year, month, day)
+      // } 
+    }
+    return repeatedWeeklyDuties
+  }
 
 
   duplicateRepeatableDuties(duties: Duty[]) {

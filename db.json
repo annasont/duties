@@ -79,6 +79,15 @@
       "frequencyUnit": "weeks",
       "dateStart": "Sat Nov 27 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 1
+    },
+    {
+      "id": 22,
+      "title": "Rowniez co tydzien",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Nov 26 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "cos",
+      "frequencyNumber": 1
     }
   ]
 }
