@@ -1,5 +1,5 @@
 <p-card *ngIf="_currentDuty" [header]="_currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
-    <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saved.emit($event)">
+    <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saveWithDate(_currentDuty)">
     <div class="p-fluid p-grid">
         <div class="p-field p-col-12">
         <span class="p-float-label">
@@ -32,7 +32,7 @@
         </div>
         <div class="p-field p-col p-md-12">
             <span class="p-float-label">
-                <p-calendar [ngModel]="date" dateFormat="dd.mm.yy" name="startDate" (ngModelChange)="dateUpdated.emit($event)" [required]="_currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
+                <p-calendar [(ngModel)]="date" dateFormat="dd.mm.yy" name="startDate" [required]="_currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
                 <label for="comment" *ngIf="_currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
                 <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
             </span>
@@ -50,3 +50,5 @@
     </div>
     </form>
 </p-card>
+
+{{ date | json }}

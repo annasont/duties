@@ -5,7 +5,7 @@
       "title": "Mycie okien",
       "frequency": "repeat",
       "frequencyUnit": "months",
-      "dateStart": "Sun Nov 14 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "dateStart": "Fri Nov 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 5
     },
     {
@@ -75,6 +75,31 @@
       "frequencyUnit": "weeks",
       "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "comment": "z magnezem i potasem"
+    },
+    {
+      "id": 37,
+      "title": "dfaef fedfa",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "2021-11-29T19:30:06.000Z",
+      "comment": "",
+      "frequencyNumber": 1
+    },
+    {
+      "id": 38,
+      "title": "ale",
+      "frequency": "repeat",
+      "frequencyUnit": "months",
+      "dateStart": "2021-11-29T23:00:00.000Z",
+      "comment": "dfadfjuaoewufua",
+      "frequencyNumber": 3
+    },
+    {
+      "id": 39,
+      "title": "aj",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)"
     }
   ]
 }

@@ -12,12 +12,11 @@
       [currentDuty]="currentDuty"
       [optionsFrequency]="optionsFrequency"
       [optionsFrequencyUnit]="optionsFrequencyUnit"
-      (saved)="saveDuty(currentDuty)"
+      (saved)="saveDuty($event)"
       (canceled)="cancel()"
       (dateUpdated)="updateDate($event)"
       >
     </app-duty-details>
-    <!-- [date]="date" -->
   </div>
 </div>
 
