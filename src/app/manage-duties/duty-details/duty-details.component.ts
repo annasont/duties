@@ -7,17 +7,24 @@ import { Duty, Frequency, FrequencyUnit } from '../../shared/interfaces';
   styleUrls: ['./duty-details.component.scss']
 })
 export class DutyDetailsComponent implements OnInit {
+  _currentDuty: Duty | undefined
 
-  @Input() currentDuty: Duty | undefined;
+
+  // @Input() currentDuty: Duty | undefined;
   @Input() optionsFrequency = [{}];
   @Input() optionsFrequencyUnit = [{}];
-  @Input() date: Date | undefined;
   @Output() saved = new EventEmitter;
   @Output() canceled = new EventEmitter;
   @Output() dateUpdated = new EventEmitter;
+  
+  date: Date | undefined;
 
 
   constructor() { }
+
+  @Input() set currentDuty(value: Duty) {
+    this._currentDuty = Object.assign({}, value)
+  }
 
   ngOnInit(): void {
   }

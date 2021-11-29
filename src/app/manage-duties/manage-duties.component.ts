@@ -12,7 +12,7 @@ export class ManageDutiesComponent implements OnInit {
 
   duties:Duty[] = []
   currentDuty: Duty;
-  date: Date | undefined;
+  // date: Date | undefined;
   optionsFrequency = [{}]
   optionsFrequencyUnit = [{}]
 
@@ -39,7 +39,7 @@ export class ManageDutiesComponent implements OnInit {
 
   selectDuty(duty: Duty) {
     this.currentDuty = duty;
-    this.date = new Date(duty.dateStart);
+    //this.date = new Date(duty.dateStart);
   }
 
   private createEmptyDuty(): Duty {

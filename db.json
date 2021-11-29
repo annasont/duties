@@ -5,7 +5,7 @@
       "title": "Mycie okien",
       "frequency": "repeat",
       "frequencyUnit": "months",
-      "dateStart": "Tue Dec 14 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "dateStart": "Sun Nov 14 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 5
     },
     {
@@ -70,11 +70,11 @@
     },
     {
       "id": 32,
-      "title": "pierwszy pon",
-      "frequency": "repeat",
+      "title": "Kupić filtry do wody",
+      "frequency": "oneTime",
       "frequencyUnit": "weeks",
-      "dateStart": "Mon Nov 22 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 1
+      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "comment": "z magnezem i potasem"
     }
   ]
 }

@@ -7,13 +7,13 @@ import { Duty } from 'src/app/shared/interfaces';
   styleUrls: ['./duties-list.component.scss']
 })
 export class DutiesListComponent implements OnInit {
-  
-  @Input() duties: Duty[] = [];
+  @Input() duties: Duty[] = []
   @Output() selected = new EventEmitter;
   @Output() deleted = new EventEmitter;
 
   constructor() { }
 
+ 
   ngOnInit(): void {
   }
 

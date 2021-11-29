@@ -1,39 +1,39 @@
-<p-card *ngIf="currentDuty" [header]="currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
+<p-card *ngIf="_currentDuty" [header]="_currentDuty.id !== 0 ? 'Edit' : 'Add new'"> 
     <form class="p-mt-4" name="manageDutiesForm" #form="ngForm" (submit)="saved.emit($event)">
     <div class="p-fluid p-grid">
         <div class="p-field p-col-12">
         <span class="p-float-label">
-            <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.title" name="title" required>
+            <input id="float-input" type="text" pInputText [(ngModel)]="_currentDuty.title" name="title" required>
             <label for="title">Title</label>
         </span>
         </div>
         <div class="p-field p-col-12">
         <span class="p-float-label">
-            <input id="float-input" type="text" pInputText [(ngModel)]="currentDuty.comment" name="comment">
+            <input id="float-input" type="text" pInputText [(ngModel)]="_currentDuty.comment" name="comment">
             <label for="comment">Comment</label>
         </span>
         </div> 
         <div class="p-field p-col p-md-4">
         <span class="p-float-label">
-            <p-dropdown [(ngModel)]="currentDuty.frequency" [options]="optionsFrequency" name="frequency" optionLabel="name" optionValue="value"></p-dropdown>  
+            <p-dropdown [(ngModel)]="_currentDuty.frequency" [options]="optionsFrequency" name="frequency" optionLabel="name" optionValue="value"></p-dropdown>  
             <label for="frequency">Frequency</label>
         </span>
         </div>
-        <div class="p-field p-col p-md-4" *ngIf="currentDuty.frequency==='repeat'">
+        <div class="p-field p-col p-md-4" *ngIf="_currentDuty.frequency==='repeat'">
         <span class="p-float-label">
-            <p-inputNumber [(ngModel)]="currentDuty.frequencyNumber" name="frequencyNumber" [required]="true"></p-inputNumber>  
+            <p-inputNumber [(ngModel)]="_currentDuty.frequencyNumber" name="frequencyNumber" [required]="true"></p-inputNumber>  
             <label for="frequency">Every (number)</label>
         </span>
         </div> 
-        <div class="p-field p-col p-md-4" *ngIf="currentDuty.frequency==='repeat'">
+        <div class="p-field p-col p-md-4" *ngIf="_currentDuty.frequency==='repeat'">
             <span class="p-float-label">
-            <p-dropdown [(ngModel)]="currentDuty.frequencyUnit" [options]="optionsFrequencyUnit" name="frequencyUnit" optionLabel="name" optionValue="value"></p-dropdown>
+            <p-dropdown [(ngModel)]="_currentDuty.frequencyUnit" [options]="optionsFrequencyUnit" name="frequencyUnit" optionLabel="name" optionValue="value"></p-dropdown>
         </span>
         </div>
         <div class="p-field p-col p-md-12">
             <span class="p-float-label">
-                <p-calendar [ngModel]="date" dateFormat="dd.mm.yy" name="startDate" (ngModelChange)="dateUpdated.emit($event)" [required]="currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
-                <label for="comment" *ngIf="currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
+                <p-calendar [ngModel]="date" dateFormat="dd.mm.yy" name="startDate" (ngModelChange)="dateUpdated.emit($event)" [required]="_currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
+                <label for="comment" *ngIf="_currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
                 <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
             </span>
         </div>
