@@ -1,80 +1,50 @@
 {
   "duties": [
     {
-      "id": 24,
-      "title": "Mycie okien",
+      "id": 33,
+      "title": "jeszcze jeden",
       "frequency": "repeat",
-      "frequencyUnit": "months",
-      "dateStart": "Fri Nov 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyUnit": "weeks",
+      "dateStart": "Thu Dec 02 2021 20:08:35 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "Oby dzialalo!",
       "frequencyNumber": 5
     },
     {
-      "id": 25,
-      "title": "Odkurzanie",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Mon Nov 29 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "W całym mieszkaniu",
-      "frequencyNumber": 1
-    },
-    {
-      "id": 26,
-      "title": "Ubezpieczenie auta",
-      "frequency": "repeat",
-      "frequencyUnit": "years",
-      "dateStart": "Wed Jan 19 2022 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "Sprawdzić oferty",
-      "frequencyNumber": 1
-    },
-    {
-      "id": 27,
-      "title": "Wyprać pościel",
-      "frequency": "repeat",
-      "frequencyUnit": "months",
-      "dateStart": "Mon Dec 06 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 1
-    },
-    {
-      "id": 28,
-      "title": "Przegląd zębów",
-      "frequency": "repeat",
-      "frequencyUnit": "years",
-      "dateStart": "Mon Jan 03 2022 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "Plus skaling i piaskowanie",
-      "frequencyNumber": 1
-    },
-    {
-      "id": 29,
-      "title": "Sprzątanie kuchni",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 10 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "Łącznie z frontami",
-      "frequencyNumber": 2
-    },
-    {
-      "id": 30,
-      "title": "Sprzątanie łazienki",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 2
-    },
-    {
-      "id": 31,
-      "title": "Poniedziałkowe ścieranie kurzu",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Mon Dec 06 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 2
-    },
-    {
-      "id": 32,
-      "title": "Kupić filtry do wody",
+      "id": 35,
+      "title": "aaa",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
-      "dateStart": "Tue Nov 30 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "comment": "z magnezem i potasem"
+      "dateStart": "Sun Dec 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "ojojoj"
+    },
+    {
+      "id": 37,
+      "title": "trrr",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Mon Dec 13 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "ojojoj"
+    },
+    {
+      "id": 38,
+      "title": "dkjfaie",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Thu Dec 02 2021 20:10:45 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "dfa"
+    },
+    {
+      "id": 39,
+      "title": "bbbb",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Thu Dec 02 2021 20:10:49 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "bbb"
     }
   ]
 }

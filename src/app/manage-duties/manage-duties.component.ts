@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { Duty, Frequency, FrequencyUnit } from '../shared/interfaces';
+import { Duty } from '../shared/interfaces';
+import { switchMap } from 'rxjs/operators';
 
 @Component({ 
   selector: 'app-manage-duties',
@@ -17,48 +18,54 @@ export class ManageDutiesComponent implements OnInit {
   optionsFrequencyUnit = [{}]
 
   constructor(private dutiesService: DutiesService) { 
-   this.currentDuty = this.createEmptyDuty();
+   this.currentDuty = dutiesService.createEmptyDuty();
   }
 
   ngOnInit(): void {
-    this.loadDutiesByTitle();
+    this.dutiesService.loadDutiesByTitle().subscribe(duties => this.duties = duties);
     this.optionsFrequency = this.dutiesService.getOptionsFrequency();
     this.optionsFrequencyUnit = this.dutiesService.getOptionsFrequencyUnit();
   }
-
-  private loadDutiesByTitle() {
-    this.dutiesService.all().subscribe(
-      (duties) => this.duties = duties.sort(function(a: Duty, b: Duty){
-      let textA: string = a.title.toUpperCase();
-      let textB: string = b.title.toUpperCase();
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    }),
-      (error) => console.log(`loadDutiesByTitile error`, error)
-    );
-  } 
 
   selectDuty(duty: Duty) {
     this.currentDuty = duty;
     this.date = new Date(duty.dateStart);
   }
 
-  private createEmptyDuty(): Duty {
-    return {
-      id: 0,
-      title: '',
-      frequency: Frequency.oneTime,
-      frequencyUnit: FrequencyUnit.weeks,
-      dateStart: new Date().toString(),
-      statusIfDone: false,
-    }
+  saveDuty(duty: Duty) {
+    this.dutiesService.saveDuty(duty)
+    .pipe(
+      switchMap(() => this.dutiesService.loadDutiesByTitle())
+    )
+    .subscribe(
+      (duties) => this.refreshDuties(duties), 
+      error => console.log(`saveDuty create error`, error)
+    )
+  }
+
+  refreshDuties(duties: Duty[]) {
+    this.duties = duties;
+    this.resetSelectedDuty();
+  }
+
+  delete(duty: Duty) {
+    this.dutiesService.delete(duty).subscribe(
+      () => {
+        function isDuty(element: Duty){
+          return element = duty
+        }
+        this.duties.splice(this.duties.findIndex(isDuty), 1);
+      },
+      error => console.log(`delete error`, error)
+    );
   }
 
   cancel() {
     this.resetSelectedDuty()
   }
 
-  private resetSelectedDuty() {
-    this.currentDuty = this.createEmptyDuty()
+  resetSelectedDuty() {
+    this.currentDuty = this.dutiesService.createEmptyDuty()
   }
 
   updateDate(date: Date) {
@@ -68,33 +75,6 @@ export class ManageDutiesComponent implements OnInit {
     this.currentDuty.dateStart = date.toString()
   }
 
-  saveDuty(duty: Duty) {
-    if (duty.id == 0) {
-      this.dutiesService.create(duty)
-      .subscribe(
-        result => this.refreshDuties(), 
-        error => console.log(`saveDuty create error`, error)
-      );
-    } else {
-      this.dutiesService.update(duty)
-      .subscribe(
-        result => this.refreshDuties(),
-        error => console.log(`saveDuty update error`, error)
-      );
-    } 
-  }
 
-  private refreshDuties() {
-    this.loadDutiesByTitle();
-    this.resetSelectedDuty();
-  }
 
-  delete(duty: Duty) {
-    this.selectDuty(duty);
-    this.dutiesService.delete(duty)
-    .subscribe(
-      result => this. refreshDuties(),
-      error => console.log(`delete error`, error)
-    );
-  }
 }

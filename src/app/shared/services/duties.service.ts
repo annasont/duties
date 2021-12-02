@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Duty, Frequency, FrequencyUnit } from '../interfaces';
+import { AppService } from './app.service'
 
 const BASE_URL = 'http://localhost:3000/'
 
@@ -11,8 +12,7 @@ const BASE_URL = 'http://localhost:3000/'
 })
 
 export class DutiesService {
-  private model = 'duties'
-
+  
   private optionsFrequency = [
     {
       name: 'one-time',
@@ -39,11 +39,7 @@ export class DutiesService {
     }
   ]
 
-  constructor(private http:HttpClient) { }
-
-  all():Observable<Duty[]> {
-    return this.http.get<Duty[]>(this.getUrl())
-  }
+  constructor(private appService:AppService) { }
 
   getOptionsFrequency(){
     return this.optionsFrequency
@@ -53,32 +49,54 @@ export class DutiesService {
     return this.optionsFrequencyUnit
   }
 
-  // find(dutyId: number) {
-
-  // }
-
-  create(duty: Duty){
-    return this.http.post<Duty[]>(this.getUrl(), duty)
+  loadDutiesByTitle() {
+    return this.appService.all().pipe(
+      map((duties) => duties.sort(function(a: Duty, b: Duty){
+        let textA: string = a.title.toUpperCase();
+        let textB: string = b.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      })));
+  } 
   
+
+  createEmptyDuty(): Duty {
+    return {
+      id: 0,
+      title: '',
+      frequency: Frequency.oneTime,
+      frequencyUnit: FrequencyUnit.weeks,
+      dateStart: new Date().toString(),
+      statusIfDone: false,
+    }
   }
 
-  update(duty: Duty){
-    return this.http.put<Duty[]>(this.getUrlById(duty), duty)
 
+  saveDuty(duty: Duty): Observable<Duty> {
+    if (duty.id == 0) {
+      return this.appService.create(duty)
+      // .subscribe(
+      //   result => this.refreshDuties(duties, duty), 
+      //   error => console.log(`saveDuty create error`, error)
+      // );
+    } else {
+      return this.appService.update(duty)
+      // .subscribe(
+      //   result => this.refreshDuties(duties, duty),
+      //   error => console.log(`saveDuty update error`, error)
+      // );
+    } 
   }
+    
 
-  delete(duty: Duty){
-    return this.http.delete(this.getUrlById(duty))
-
+  delete(duty: Duty): Observable<void> {
+    return this.appService.delete(duty)
+    // .subscribe(
+    //   result => this.refreshDuties(duties, duty),
+    //   error => console.log(`delete error`, error)
+    // );
   }
-
-  private getUrl() {
-    return `${BASE_URL}${this.model}`
-  }
-
-  private getUrlById(duty: Duty) {
-    return `${this.getUrl()}/${duty.id}`
-  }
+  
+  
 
 }
 

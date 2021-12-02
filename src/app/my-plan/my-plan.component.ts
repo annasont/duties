@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
+import { AppService } from '../shared/services/app.service';
 import { Duty, Week, Frequency, FrequencyUnit } from '../shared/interfaces';
 
 @Component({
@@ -14,7 +15,7 @@ export class MyPlanComponent implements OnInit {
   sunday = this.getSunday(this.lastMonday)
   fourWeeks: Week[] = [];
 
-  constructor(private dutiesService: DutiesService) { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
     this.loadDutiesByDate();
@@ -22,7 +23,7 @@ export class MyPlanComponent implements OnInit {
 
 
   loadDutiesByDate() {
-    this.dutiesService.all().subscribe(
+    this.appService.all().subscribe(
       (duties) => 
       { 
         this.duties =this.duplicateRepeatableDuties(duties);
