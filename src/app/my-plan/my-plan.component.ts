@@ -86,7 +86,8 @@ export class MyPlanComponent implements OnInit {
         frequencyUnit: duty.frequencyUnit,
         dateStart: x.toString(),
         frequencyNumber: duty.frequencyNumber,
-        comment: duty.comment
+        comment: duty.comment,
+        statusIfDone: false,
       })
     } else {
       repeatDuties.push({
@@ -96,6 +97,7 @@ export class MyPlanComponent implements OnInit {
         frequencyUnit: duty.frequencyUnit,
         dateStart: x.toString(),
         frequencyNumber: duty.frequencyNumber,
+        statusIfDone: false,
       })
     }
   }
@@ -192,5 +194,8 @@ export class MyPlanComponent implements OnInit {
     return respons
   }
 
-  tescik = this.test()
+  dutyDone(duty: Duty){
+    duty.statusIfDone = !duty.statusIfDone;
+    console.log('FIRED!!!!', duty.statusIfDone)       
+}
 }

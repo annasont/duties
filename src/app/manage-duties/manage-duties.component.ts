@@ -49,6 +49,7 @@ export class ManageDutiesComponent implements OnInit {
       frequency: Frequency.oneTime,
       frequencyUnit: FrequencyUnit.weeks,
       dateStart: new Date().toString(),
+      statusIfDone: false,
     }
   }
 
@@ -71,16 +72,16 @@ export class ManageDutiesComponent implements OnInit {
     if (duty.id == 0) {
       this.dutiesService.create(duty)
       .subscribe(
-        result => this. refreshDuties(), 
+        result => this.refreshDuties(), 
         error => console.log(`saveDuty create error`, error)
       );
     } else {
       this.dutiesService.update(duty)
       .subscribe(
-        result => this. refreshDuties(),
+        result => this.refreshDuties(),
         error => console.log(`saveDuty update error`, error)
       );
-    }
+    } 
   }
 
   private refreshDuties() {

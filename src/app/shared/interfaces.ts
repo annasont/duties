@@ -7,6 +7,7 @@ export interface Duty {
     frequencyUnit?: FrequencyUnit;
     dateStart: string;
     comment?: string;
+    statusIfDone: boolean;
   }
   
 export enum Frequency {
