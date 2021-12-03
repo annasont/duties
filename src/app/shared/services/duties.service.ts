@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Duty, Frequency, FrequencyUnit } from '../interfaces';
-import { AppService } from './app.service'
+import { ApiService } from './api.service'
 
 const BASE_URL = 'http://localhost:3000/'
 
@@ -39,7 +39,7 @@ export class DutiesService {
     }
   ]
 
-  constructor(private appService:AppService) { }
+  constructor(private apiService:ApiService) { }
 
   getOptionsFrequency(){
     return this.optionsFrequency
@@ -50,7 +50,7 @@ export class DutiesService {
   }
 
   loadDutiesByTitle() {
-    return this.appService.all().pipe(
+    return this.apiService.all().pipe(
       map((duties) => duties.sort(function(a: Duty, b: Duty){
         let textA: string = a.title.toUpperCase();
         let textB: string = b.title.toUpperCase();
@@ -73,15 +73,15 @@ export class DutiesService {
 
   saveDuty(duty: Duty): Observable<Duty> {
     if (duty.id == 0) {
-      return this.appService.create(duty)
+      return this.apiService.create(duty)
     } else {
-      return this.appService.update(duty)
+      return this.apiService.update(duty)
     } 
   }
     
 
   delete(duty: Duty): Observable<void> {
-    return this.appService.delete(duty)
+    return this.apiService.delete(duty)
   }
   
   

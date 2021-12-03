@@ -20,6 +20,7 @@ import { DutiesService } from './shared/services/duties.service';
 import { DutiesListComponent } from './manage-duties/duties-list/duties-list.component';
 import { DutyDetailsComponent } from './manage-duties/duty-details/duty-details.component';
 import { AccordionModule } from 'primeng/accordion';
+import { ApiService } from './shared/services/api.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,10 @@ import { AccordionModule } from 'primeng/accordion';
     HttpClientModule,
     AccordionModule,
   ],
-  providers: [DutiesService],
+  providers: [
+    DutiesService,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
