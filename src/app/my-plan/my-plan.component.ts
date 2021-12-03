@@ -197,6 +197,6 @@ export class MyPlanComponent implements OnInit {
 
   dutyDone(duty: Duty){
     duty.statusIfDone = !duty.statusIfDone;
-        
+    
   }
 }

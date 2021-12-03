@@ -51,13 +51,16 @@ export class DutiesService {
 
   loadDutiesByTitle() {
     return this.apiService.all().pipe(
-      map((duties) => duties.sort(function(a: Duty, b: Duty){
-        let textA: string = a.title.toUpperCase();
-        let textB: string = b.title.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })));
+      map((duties) => this.sortByTitle(duties)));
   } 
   
+  sortByTitle(duties: Duty[]): Duty[]{
+    return duties.sort(function(a: Duty, b: Duty){
+      let textA: string = a.title.toUpperCase();
+      let textB: string = b.title.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+  }
 
   createEmptyDuty(): Duty {
     return {

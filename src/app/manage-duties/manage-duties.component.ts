@@ -34,11 +34,16 @@ export class ManageDutiesComponent implements OnInit {
 
   saveDuty(duty: Duty) {
     this.dutiesService.saveDuty(duty)
-    .pipe(
-      switchMap(() => this.dutiesService.loadDutiesByTitle())
-    )
     .subscribe(
-      (duties) => this.refreshDuties(duties), 
+      (duty) => {
+        if (duty.id == 0) {
+          this.duties = this.dutiesService.sortByTitle([...this.duties, duty]);
+        } else {
+          this.duties.splice(this.duties.findIndex((element: Duty) => element.id == duty.id), 1, duty)
+          this.duties = this.dutiesService.sortByTitle(this.duties)
+        }
+        this.resetSelectedDuty();
+      },
       error => console.log(`saveDuty create error`, error)
     )
   }

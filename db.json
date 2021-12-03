@@ -2,7 +2,7 @@
   "duties": [
     {
       "id": 35,
-      "title": "aaa",
+      "title": "aaabbbcccc",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
       "dateStart": "Sun Dec 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
@@ -17,15 +17,6 @@
       "dateStart": "Fri Dec 03 2021 19:00:55 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
       "comment": "eee"
-    },
-    {
-      "id": 40,
-      "title": "bbb",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 19:08:49 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "bbb"
     },
     {
       "id": 41,
@@ -53,6 +44,26 @@
       "dateStart": "Fri Dec 03 2021 19:09:05 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
       "comment": "t"
+    },
+    {
+      "id": 45,
+      "title": "dfaef",
+      "frequency": "repeat",
+      "frequencyUnit": "months",
+      "dateStart": "Sun Dec 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "fdae",
+      "frequencyNumber": 5
+    },
+    {
+      "id": 46,
+      "title": "bbbb",
+      "frequency": "repeat",
+      "frequencyUnit": "months",
+      "dateStart": "Mon Dec 06 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "bbb",
+      "frequencyNumber": 1
     }
   ]
 }
