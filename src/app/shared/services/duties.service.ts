@@ -74,26 +74,14 @@ export class DutiesService {
   saveDuty(duty: Duty): Observable<Duty> {
     if (duty.id == 0) {
       return this.appService.create(duty)
-      // .subscribe(
-      //   result => this.refreshDuties(duties, duty), 
-      //   error => console.log(`saveDuty create error`, error)
-      // );
     } else {
       return this.appService.update(duty)
-      // .subscribe(
-      //   result => this.refreshDuties(duties, duty),
-      //   error => console.log(`saveDuty update error`, error)
-      // );
     } 
   }
     
 
   delete(duty: Duty): Observable<void> {
     return this.appService.delete(duty)
-    // .subscribe(
-    //   result => this.refreshDuties(duties, duty),
-    //   error => console.log(`delete error`, error)
-    // );
   }
   
   

@@ -51,10 +51,7 @@ export class ManageDutiesComponent implements OnInit {
   delete(duty: Duty) {
     this.dutiesService.delete(duty).subscribe(
       () => {
-        function isDuty(element: Duty){
-          return element = duty
-        }
-        this.duties.splice(this.duties.findIndex(isDuty), 1);
+        this.duties.splice(this.duties.findIndex((element: Duty) => element == duty), 1);
       },
       error => console.log(`delete error`, error)
     );

@@ -1,16 +1,6 @@
 {
   "duties": [
     {
-      "id": 33,
-      "title": "jeszcze jeden",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Thu Dec 02 2021 20:08:35 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "Oby dzialalo!",
-      "frequencyNumber": 5
-    },
-    {
       "id": 35,
       "title": "aaa",
       "frequency": "oneTime",
@@ -20,31 +10,49 @@
       "comment": "ojojoj"
     },
     {
-      "id": 37,
-      "title": "trrr",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Mon Dec 13 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "ojojoj"
-    },
-    {
-      "id": 38,
-      "title": "dkjfaie",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Thu Dec 02 2021 20:10:45 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "dfa"
-    },
-    {
       "id": 39,
-      "title": "bbbb",
+      "title": "eee",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
-      "dateStart": "Thu Dec 02 2021 20:10:49 GMT+0100 (Central European Standard Time)",
+      "dateStart": "Fri Dec 03 2021 19:00:55 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "eee"
+    },
+    {
+      "id": 40,
+      "title": "bbb",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 03 2021 19:08:49 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
       "comment": "bbb"
+    },
+    {
+      "id": 41,
+      "title": "ccc",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 03 2021 19:08:55 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "c"
+    },
+    {
+      "id": 42,
+      "title": "fff",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 03 2021 19:08:59 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "f"
+    },
+    {
+      "id": 43,
+      "title": "ttt",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 03 2021 19:09:05 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "t"
     }
   ]
 }
