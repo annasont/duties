@@ -1,26 +1,6 @@
 {
   "duties": [
     {
-      "id": 48,
-      "title": "Sprzątanie kuchni",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": true,
-      "comment": "z frontami",
-      "frequencyNumber": 2
-    },
-    {
-      "id": 49,
-      "title": "Sprzątanie łazienki",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Thu Dec 09 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "z odkamienianiem szyby",
-      "frequencyNumber": 2
-    },
-    {
       "id": 50,
       "title": "Kupić kurtkę zimową",
       "frequency": "oneTime",
@@ -48,26 +28,6 @@
       "frequencyNumber": 1
     },
     {
-      "id": 53,
-      "title": "odkurzanie",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": true,
-      "comment": "W całym mieszkaniu",
-      "frequencyNumber": 1
-    },
-    {
-      "id": 56,
-      "title": "odkurzanie",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 10 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 1,
-      "comment": "W całym mieszkaniu",
-      "statusIfDone": true
-    },
-    {
       "id": 57,
       "title": "Sprzątanie kuchni",
       "frequency": "repeat",
@@ -75,7 +35,35 @@
       "dateStart": "Wed Dec 15 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 2,
       "comment": "z frontami",
-      "statusIfDone": true
+      "statusIfDone": false
+    },
+    {
+      "id": 59,
+      "title": "odkurzanie",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 17 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 1,
+      "comment": "W całym mieszkaniu",
+      "statusIfDone": false
+    },
+    {
+      "id": 60,
+      "title": "Sprzątanie łazienki",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Sun Dec 05 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "odkamienianie",
+      "frequencyNumber": 2
+    },
+    {
+      "id": 61,
+      "title": "Kupić prezent dla Mamy",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Thu Dec 09 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false
     }
   ]
 }

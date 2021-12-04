@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { ApiService } from '../shared/services/api.service';
 import { Duty, Week, Frequency, FrequencyUnit } from '../shared/interfaces';
 
 @Component({
@@ -11,6 +10,7 @@ import { Duty, Week, Frequency, FrequencyUnit } from '../shared/interfaces';
 
 export class MyPlanComponent implements OnInit {
   duties: Duty[] = []
+  dutiesWithRepetition: Duty[] = []
   lastMonday = this.getMonday(new Date())
   sunday = this.getSunday(this.lastMonday)
   fourWeeks: Week[] = [];
@@ -24,8 +24,9 @@ export class MyPlanComponent implements OnInit {
   loadDutiesByDate() {
     this.dutiesService.loadDuties().subscribe((duties) => 
       {
-        this.duties = this.duplicateRepeatableDuties(duties);
-        this.fourWeeks = this.loadCurrentWeeks(duties);
+        this.duties = duties
+        this.dutiesWithRepetition = this.duplicateRepeatableDuties(duties);
+        this.fourWeeks = this.loadCurrentWeeks(this.dutiesWithRepetition);
       },
       (error) => console.log(`loadDutiesByDate error`, error)
     );  
