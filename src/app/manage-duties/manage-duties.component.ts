@@ -35,11 +35,11 @@ export class ManageDutiesComponent implements OnInit {
   saveDuty(duty: Duty) {
     this.dutiesService.saveDuty(duty)
     .subscribe(
-      (duty) => {
+      (dutySaved) => {
         if (duty.id == 0) {
-          this.duties = this.dutiesService.sortByTitle([...this.duties, duty]);
+          this.duties = this.dutiesService.sortByTitle([...this.duties, dutySaved]);
         } else {
-          this.duties.splice(this.duties.findIndex((element: Duty) => element.id == duty.id), 1, duty)
+          this.duties.splice(this.duties.findIndex((element: Duty) => element.id == dutySaved.id), 1, dutySaved)
           this.duties = this.dutiesService.sortByTitle(this.duties)
         }
         this.resetSelectedDuty();

@@ -1,69 +1,81 @@
 {
   "duties": [
     {
-      "id": 35,
-      "title": "aaabbbcccc",
-      "frequency": "oneTime",
+      "id": 48,
+      "title": "Sprzątanie kuchni",
+      "frequency": "repeat",
       "frequencyUnit": "weeks",
-      "dateStart": "Sun Dec 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "ojojoj"
+      "dateStart": "Wed Dec 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": true,
+      "comment": "z frontami",
+      "frequencyNumber": 2
     },
     {
-      "id": 39,
-      "title": "eee",
-      "frequency": "oneTime",
+      "id": 49,
+      "title": "Sprzątanie łazienki",
+      "frequency": "repeat",
       "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 19:00:55 GMT+0100 (Central European Standard Time)",
+      "dateStart": "Thu Dec 09 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
-      "comment": "eee"
+      "comment": "z odkamienianiem szyby",
+      "frequencyNumber": 2
     },
     {
-      "id": 41,
-      "title": "ccc",
+      "id": 50,
+      "title": "Kupić kurtkę zimową",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 19:08:55 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "c"
+      "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": true,
+      "comment": "puchową"
     },
     {
-      "id": 42,
-      "title": "fff",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 19:08:59 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "f"
-    },
-    {
-      "id": 43,
-      "title": "ttt",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 03 2021 19:09:05 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "t"
-    },
-    {
-      "id": 45,
-      "title": "dfaef",
+      "id": 51,
+      "title": "mycie okien",
       "frequency": "repeat",
       "frequencyUnit": "months",
-      "dateStart": "Sun Dec 12 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "dateStart": "Sun Dec 19 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
-      "comment": "fdae",
-      "frequencyNumber": 5
+      "frequencyNumber": 6
     },
     {
-      "id": 46,
-      "title": "bbbb",
+      "id": 52,
+      "title": "ubezpieczenie auta",
       "frequency": "repeat",
-      "frequencyUnit": "months",
-      "dateStart": "Mon Dec 06 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyUnit": "years",
+      "dateStart": "Wed Dec 15 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false,
-      "comment": "bbb",
       "frequencyNumber": 1
+    },
+    {
+      "id": 53,
+      "title": "odkurzanie",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": true,
+      "comment": "W całym mieszkaniu",
+      "frequencyNumber": 1
+    },
+    {
+      "id": 56,
+      "title": "odkurzanie",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 10 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 1,
+      "comment": "W całym mieszkaniu",
+      "statusIfDone": true
+    },
+    {
+      "id": 57,
+      "title": "Sprzątanie kuchni",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Wed Dec 15 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 2,
+      "comment": "z frontami",
+      "statusIfDone": true
     }
   ]
 }

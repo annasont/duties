@@ -15,22 +15,20 @@ export class MyPlanComponent implements OnInit {
   sunday = this.getSunday(this.lastMonday)
   fourWeeks: Week[] = [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private dutiesService: DutiesService) { }
 
   ngOnInit(): void {
     this.loadDutiesByDate();
   }
 
-
   loadDutiesByDate() {
-    this.apiService.all().subscribe(
-      (duties) => 
-      { 
-        this.duties =this.duplicateRepeatableDuties(duties);
+    this.dutiesService.loadDuties().subscribe((duties) => 
+      {
+        this.duties = this.duplicateRepeatableDuties(duties);
         this.fourWeeks = this.loadCurrentWeeks(duties);
       },
       (error) => console.log(`loadDutiesByDate error`, error)
-    );
+    );  
   }
 
   duplicateRepeatableDuties(duties: Duty[]) {
@@ -181,22 +179,19 @@ export class MyPlanComponent implements OnInit {
     )
   }
 
-  test(){
-    let dateFormat = new Date("Mon Nov 22 2021 21:00:00 GMT+0100");
-    let monday = new Date("Mon Nov 22 2021 20:48:06 GMT+0100");
-    let sun = new Date("Sun Nov 28 2021 20:48:06 GMT+0100");
-    let respons = ''
-
-    if (dateFormat >= monday && dateFormat <= sun){
-      respons = 'Ok'
-    } else {
-      respons = 'nope'
-    }
-    return respons
-  }
-
-  dutyDone(duty: Duty){
+  dutyMarkedDone(duty: Duty){
     duty.statusIfDone = !duty.statusIfDone;
-    
+    this.dutiesService.saveDuty(duty)
+    .subscribe(
+      (duty) => {
+        if (duty.id == 0) {
+          this.duties = [...this.duties, duty];
+        } else {
+          this.duties.splice(this.duties.findIndex((element: Duty) => element.id == duty.id), 1, duty)
+          this.duties = [...this.duties, duty];
+        }
+      },
+      error => console.log(`dutyMarkedDone error`, error)
+    )
   }
 }

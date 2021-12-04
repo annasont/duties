@@ -49,6 +49,10 @@ export class DutiesService {
     return this.optionsFrequencyUnit
   }
 
+  loadDuties(){
+    return this.apiService.all()
+  }
+
   loadDutiesByTitle() {
     return this.apiService.all().pipe(
       map((duties) => this.sortByTitle(duties)));
@@ -87,7 +91,17 @@ export class DutiesService {
     return this.apiService.delete(duty)
   }
   
-  
+  // updateDatabase(duty: Duty[], dutiesList: Duty[]) {
+    
+  // }
+  // (duty) => {
+  //   if (duty.id == 0) {
+  //     this.duties = this.dutiesService.sortByTitle([...this.duties, duty]);
+  //   } else {
+  //     this.duties.splice(this.duties.findIndex((element: Duty) => element.id == duty.id), 1, duty)
+  //     this.duties = this.dutiesService.sortByTitle(this.duties)
+  //   }
+  // },
 
 }
 
