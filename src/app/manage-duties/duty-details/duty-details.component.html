@@ -27,12 +27,12 @@
         </div> 
         <div class="p-field p-col p-md-4" *ngIf="_currentDuty.frequency==='repeat'">
             <span class="p-float-label">
-            <p-dropdown [(ngModel)]="_currentDuty.frequencyUnit" [options]="optionsFrequencyUnit" name="frequencyUnit" optionLabel="name" optionValue="value"></p-dropdown>
+            <p-dropdown [(ngModel)]="_currentDuty.frequencyUnit" [options]="optionsFrequencyUnit" name="frequencyUnit" optionLabel="name" optionValue="value" dataKey="value"></p-dropdown>
         </span>
         </div>
         <div class="p-field p-col p-md-12">
             <span class="p-float-label">
-                <p-calendar [(ngModel)]="date" dateFormat="dd.mm.yy" name="startDate" [required]="_currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
+                <p-calendar [(ngModel)]="date" dateFormat="dd.mm.yy" name="startDate" dataKey="value" [required]="_currentDuty.frequency === 'repeat' ? true : false"></p-calendar>
                 <label for="comment" *ngIf="_currentDuty.frequency==='oneTime'; else elseBlock">Select date</label>
                 <ng-template #elseBlock><label for="comment">Starts (date)</label></ng-template>
             </span>

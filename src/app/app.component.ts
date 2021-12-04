@@ -18,8 +18,6 @@ export class AppComponent {
           {label: 'My plan', icon: 'pi pi-fw pi-calendar', routerLink: '/my-plan'},
           {label: 'Manage duties', icon: 'pi pi-fw pi-pencil', routerLink: '/manage-duties'},
       ];
-
-      this.activeItem = this.items[0];
   }
 }
 

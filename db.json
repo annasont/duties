@@ -11,7 +11,7 @@
     },
     {
       "id": 51,
-      "title": "mycie okien",
+      "title": "Mycie okien",
       "frequency": "repeat",
       "frequencyUnit": "months",
       "dateStart": "Sun Dec 19 2021 00:00:00 GMT+0100 (Central European Standard Time)",
@@ -20,7 +20,7 @@
     },
     {
       "id": 52,
-      "title": "ubezpieczenie auta",
+      "title": "Ubezpieczenie auta",
       "frequency": "repeat",
       "frequencyUnit": "years",
       "dateStart": "Wed Dec 15 2021 00:00:00 GMT+0100 (Central European Standard Time)",
@@ -39,7 +39,7 @@
     },
     {
       "id": 59,
-      "title": "odkurzanie",
+      "title": "Odkurzanie",
       "frequency": "repeat",
       "frequencyUnit": "weeks",
       "dateStart": "Fri Dec 17 2021 00:00:00 GMT+0100 (Central European Standard Time)",

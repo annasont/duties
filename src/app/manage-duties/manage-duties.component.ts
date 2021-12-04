@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
 import { Duty } from '../shared/interfaces';
-import { switchMap } from 'rxjs/operators';
 
 @Component({ 
   selector: 'app-manage-duties',

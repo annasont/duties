@@ -6,3 +6,29 @@ body {
     font-family:var(--font-family);
     color:var(--text-color);
 }
+
+p-card {
+    margin-top: 10px;
+    display: block
+}
+
+.short {
+    width: 5%;    
+}
+
+.width50 {
+    width: 50%;
+}
+
+.alignTop {
+    vertical-align: top;
+    padding-top: 22px !important;
+}
+
+.medium {
+    font-size: 85%;
+}
+
+.dutyDone {
+    color: gray;
+}
