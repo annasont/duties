@@ -1,0 +1,32 @@
+<p-card header="My plan for a month">
+    <p-accordion [multiple]="true" *ngFor="let week of fourWeeks">
+        <p-accordionTab header="{{week.monday | date}}–{{week.sunday | date}}">
+            <p-table *ngIf="week.duties; else noDuties" [value]="week.duties" dataKey="id"> 
+
+                <ng-template pTemplate="body" let-duty let-expanded="expanded">
+                    <tr>
+                    <td class="width50">
+                        <p>{{duty.title}}</p>
+                        <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
+                    </td>
+                    <td>
+                        <i class="pi pi-calendar"></i> 
+                        {{ duty.dateStart | date }} 
+                        <p class="medium" *ngIf="duty.frequencyNumber">
+                            <i class="pi pi-replay medium"></i> &nbsp;
+                            Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
+                        </p>
+                    </td>
+                    <td class="alignTop">
+                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="dutyMarkedDone.emit(duty)"><i [class]="duty.statusIfDone ? 'pi pi-check-circle' : 'pi pi-circle-off'"></i></button>
+                    </td>
+                    </tr>
+                    
+                </ng-template>
+            </p-table>
+            <ng-template #noDuties><p>No duties this week!</p></ng-template>
+        </p-accordionTab>
+        
+    </p-accordion>
+
+</p-card>

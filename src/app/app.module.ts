@@ -21,6 +21,7 @@ import { DutiesListComponent } from './manage-duties/duties-list/duties-list.com
 import { DutyDetailsComponent } from './manage-duties/duty-details/duty-details.component';
 import { AccordionModule } from 'primeng/accordion';
 import { ApiService } from './shared/services/api.service';
+import { WeeklyListComponent } from './my-plan/weekly-list/weekly-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ApiService } from './shared/services/api.service';
     ManageDutiesComponent,
     DutiesListComponent,
     DutyDetailsComponent,
+    WeeklyListComponent,
   ],
   imports: [
     BrowserModule,
