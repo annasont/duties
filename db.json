@@ -6,7 +6,7 @@
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
       "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
+      "statusIfDone": true,
       "comment": "puchową"
     },
     {
@@ -53,7 +53,7 @@
       "frequency": "repeat",
       "frequencyUnit": "weeks",
       "dateStart": "Sun Dec 05 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": true,
+      "statusIfDone": false,
       "comment": "odkamienianie",
       "frequencyNumber": 2
     },

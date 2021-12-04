@@ -5,28 +5,26 @@
 
                 <ng-template pTemplate="body" let-duty let-expanded="expanded">
                     <tr>
-                    <td class="width50">
-                        <p>{{duty.title}}</p>
-                        <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
-                    </td>
-                    <td>
-                        <i class="pi pi-calendar"></i> 
-                        {{ duty.dateStart | date }} 
-                        <p class="medium" *ngIf="duty.frequencyNumber">
-                            <i class="pi pi-replay medium"></i> &nbsp;
-                            Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
-                        </p>
-                    </td>
-                    <td class="alignTop">
-                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="dutyMarkedDone.emit(duty)"><i [class]="duty.statusIfDone ? 'pi pi-check-circle' : 'pi pi-circle-off'"></i></button>
-                    </td>
-                    </tr>
-                    
+                        <td class="width50" [class.dutyDone]="duty.statusIfDone">
+                            <p>{{duty.title}}</p>
+                            <p class="medium" *ngIf="duty.comment">{{duty.comment}}</p>
+                        </td>
+                        <td [class.dutyDone]="duty.statusIfDone">
+                            <i class="pi pi-calendar"></i> 
+                            {{ duty.dateStart | date }} 
+                            <p class="medium" *ngIf="duty.frequencyNumber">
+                                <i class="pi pi-replay medium"></i> &nbsp;
+                                Every {{ duty.frequencyNumber }} {{ duty.frequencyUnit }}
+                            </p>
+                        </td>
+                        <td class="alignTop" [class.dutyDone]="duty.statusIfDone">
+                            <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" (click)="dutyMarkedDone.emit(duty)"><i [class]="duty.statusIfDone ? 'pi pi-check-circle' : 'pi pi-circle-off'"></i></button>
+                        </td>
+                    </tr>  
                 </ng-template>
             </p-table>
             <ng-template #noDuties><p>No duties this week!</p></ng-template>
-        </p-accordionTab>
-        
+        </p-accordionTab>    
     </p-accordion>
 
 </p-card>
