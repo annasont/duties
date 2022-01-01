@@ -10,11 +10,11 @@ import { Duty } from '../shared/interfaces';
 
 export class ManageDutiesComponent implements OnInit {
 
-  duties:Duty[] = []
+  duties:Duty[] = [];
   currentDuty: Duty;
-  date: Date | undefined;
-  optionsFrequency = [{}]
-  optionsFrequencyUnit = [{}]
+  optionsFrequency = [{}];
+  optionsFrequencyUnit = [{}];
+  private date: Date | undefined;
 
   constructor(private dutiesService: DutiesService) { 
    this.currentDuty = dutiesService.createEmptyDuty();
@@ -47,11 +47,6 @@ export class ManageDutiesComponent implements OnInit {
     )
   }
 
-  refreshDuties(duties: Duty[]) {
-    this.duties = duties;
-    this.resetSelectedDuty();
-  }
-
   delete(duty: Duty) {
     this.dutiesService.delete(duty).subscribe(
       () => {
@@ -65,7 +60,7 @@ export class ManageDutiesComponent implements OnInit {
     this.resetSelectedDuty()
   }
 
-  resetSelectedDuty() {
+  private resetSelectedDuty() {
     this.currentDuty = this.dutiesService.createEmptyDuty()
   }
 
@@ -75,7 +70,5 @@ export class ManageDutiesComponent implements OnInit {
     }
     this.currentDuty.dateStart = date.toString()
   }
-
-
 
 }

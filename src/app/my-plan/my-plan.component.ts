@@ -9,10 +9,8 @@ import { Duty, Week, Frequency, FrequencyUnit } from '../shared/interfaces';
 })
 
 export class MyPlanComponent implements OnInit {
-  duties: Duty[] = []
-  dutiesWithRepetition: Duty[] = []
-  lastMonday = this.getMonday(new Date())
-  sunday = this.getSunday(this.lastMonday)
+  private duties: Duty[] = []
+  private dutiesWithRepetition: Duty[] = []
   fourWeeks: Week[] = [];
 
   constructor(private dutiesService: DutiesService) { }
@@ -21,7 +19,7 @@ export class MyPlanComponent implements OnInit {
     this.loadDutiesByDate();
   }
 
-  loadDutiesByDate() {
+  private loadDutiesByDate() {
     this.dutiesService.loadDuties().subscribe((duties) => 
       {
         this.duties = duties
@@ -32,7 +30,7 @@ export class MyPlanComponent implements OnInit {
     );  
   }
 
-  duplicateRepeatableDuties(duties: Duty[]) {
+  private duplicateRepeatableDuties(duties: Duty[]) {
     let repeatDuties: Duty[] = []
     for (let duty of duties) {
       if (duty.frequencyNumber) {
@@ -77,7 +75,7 @@ export class MyPlanComponent implements OnInit {
     return duties
   }
 
-  addDuties(repeatDuties:Duty[], x: Date, duty: Duty) {
+  private addDuties(repeatDuties:Duty[], x: Date, duty: Duty) {
     if (duty.comment) {
       repeatDuties.push({
         id: 0,
@@ -102,7 +100,7 @@ export class MyPlanComponent implements OnInit {
     }
   }
 
-  loadCurrentWeeks(duties: Duty[]): Week[] {
+  private loadCurrentWeeks(duties: Duty[]): Week[] {
     let mon = this.getMonday(new Date());
     let sun = this.getSunday(mon);
     let fourWeeks: Week[] = []
@@ -144,7 +142,7 @@ export class MyPlanComponent implements OnInit {
     return fourWeeks
   }
 
-  getMonday(d: Date) {
+  private getMonday(d: Date) {
     d = new Date(d);
     let day = d.getDay();
     let diff = d.getDate() - day + (day == 0 ? -6:1); 
@@ -153,13 +151,13 @@ export class MyPlanComponent implements OnInit {
     return monday;
   }
 
-  getSunday(d: Date) {
+  private getSunday(d: Date) {
     d = new Date(d)
     let diff = d.getDate() + 6
     return new Date(d.setDate(diff));
   }
 
-  sortDutiesByWeeks(duties: Duty[], monday: Date, sunday: Date): Duty[]{
+  private sortDutiesByWeeks(duties: Duty[], monday: Date, sunday: Date): Duty[]{
     let sortedDuties = [];
     for (let duty of duties) {
       let dateFormat: Date = new Date(duty.dateStart)
@@ -170,7 +168,7 @@ export class MyPlanComponent implements OnInit {
     return sortedDuties
   }
 
-  sortByDate(duties: Duty[]) {
+  private sortByDate(duties: Duty[]) {
     return duties.sort(
       function(a: Duty, b: Duty){
         let dateA: Date = new Date(a.dateStart);

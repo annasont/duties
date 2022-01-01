@@ -28,16 +28,6 @@
       "frequencyNumber": 1
     },
     {
-      "id": 57,
-      "title": "Sprzątanie kuchni",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Wed Dec 15 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 2,
-      "comment": "z frontami",
-      "statusIfDone": false
-    },
-    {
       "id": 60,
       "title": "Sprzątanie łazienki",
       "frequency": "repeat",
@@ -63,7 +53,7 @@
       "dateStart": "Fri Dec 31 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 1,
       "comment": "W całym mieszkaniu",
-      "statusIfDone": false
+      "statusIfDone": true
     },
     {
       "id": 63,
@@ -75,14 +65,42 @@
       "comment": "w korytarzu i łazience"
     },
     {
-      "id": 64,
-      "title": "Sprzątanie kuchni",
+      "id": 67,
+      "title": "Sprzątanie kuchni ",
       "frequency": "repeat",
       "frequencyUnit": "weeks",
       "dateStart": "Wed Dec 29 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 2,
       "comment": "z frontami",
-      "statusIfDone": true
+      "statusIfDone": false
+    },
+    {
+      "id": 68,
+      "title": "a cos powiem?",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Tue Jan 04 2022 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": true,
+      "comment": "jutro ",
+      "frequencyNumber": 3
+    },
+    {
+      "id": 69,
+      "title": "A na początek",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Thu Jan 06 2022 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "dfjk"
+    },
+    {
+      "id": 70,
+      "title": "hoho ho prezenty",
+      "frequency": "repeat",
+      "frequencyUnit": "months",
+      "dateStart": "Thu Jan 06 2022 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "frequencyNumber": 1
     }
   ]
 }
