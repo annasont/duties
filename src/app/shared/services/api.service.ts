@@ -18,17 +18,17 @@ export class ApiService {
     return this.http.get<Duty[]>(this.getUrl())
   }
 
-  create(duty: Duty){
+  create(duty: Duty): Observable<Duty> {
     return this.http.post<Duty>(this.getUrl(), duty)
   
   }
 
-  update(duty: Duty){
+  update(duty: Duty): Observable<Duty> {
     return this.http.put<Duty>(this.getUrlById(duty), duty)
 
   }
 
-  delete(duty: Duty){
+  delete(duty: Duty): Observable<void>{
     return this.http.delete<void>(this.getUrlById(duty))
 
   }
