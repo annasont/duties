@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Duty, Frequency, FrequencyUnit } from '../interfaces';
+import { Duty, Frequency, FrequencyUnit, OptionsFrequency, OptionsFrequencyUnit } from '../interfaces';
 import { ApiService } from './api.service'
 
 const BASE_URL = 'http://localhost:3000/'
@@ -12,7 +12,7 @@ const BASE_URL = 'http://localhost:3000/'
 
 export class DutiesService {
   
-  private optionsFrequency = [
+  private optionsFrequency: OptionsFrequency[] = [
     {
       name: 'one-time',
       value: Frequency.oneTime
@@ -23,7 +23,7 @@ export class DutiesService {
     }
   ]
 
-  private optionsFrequencyUnit = [
+  private optionsFrequencyUnit: OptionsFrequencyUnit[] = [
     {
       name: 'week(s)',
       value: FrequencyUnit.weeks

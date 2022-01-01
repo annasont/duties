@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DutiesService } from '../shared/services/duties.service';
-import { Duty } from '../shared/interfaces';
+import { Duty, OptionsFrequency, OptionsFrequencyUnit } from '../shared/interfaces';
 
 @Component({ 
   selector: 'app-manage-duties',
@@ -12,9 +12,8 @@ export class ManageDutiesComponent implements OnInit {
 
   duties:Duty[] = [];
   currentDuty: Duty;
-  optionsFrequency = [{}];
-  optionsFrequencyUnit = [{}];
-  private date: Date | undefined;
+  optionsFrequency: OptionsFrequency[] = [];
+  optionsFrequencyUnit: OptionsFrequencyUnit[] = [];
 
   constructor(private dutiesService: DutiesService) { 
    this.currentDuty = dutiesService.createEmptyDuty();
@@ -28,7 +27,6 @@ export class ManageDutiesComponent implements OnInit {
 
   selectDuty(duty: Duty) {
     this.currentDuty = duty;
-    this.date = new Date(duty.dateStart);
   }
 
   saveDuty(duty: Duty) {
@@ -55,7 +53,7 @@ export class ManageDutiesComponent implements OnInit {
     this.duties.splice(this.duties.findIndex((element: Duty) => element.id == dutySaved.id), 1, dutySaved);
     this.duties = this.dutiesService.sortByTitle(this.duties);
   }
-  
+
   delete(duty: Duty) {
     this.dutiesService.delete(duty).subscribe(
       () => {

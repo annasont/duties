@@ -2,7 +2,7 @@
   "duties": [
     {
       "id": 50,
-      "title": "Kupić kurtkę zimową i letnią",
+      "title": "Kupić kurtkę zimową i letnią dfa",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
       "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
@@ -53,7 +53,7 @@
       "dateStart": "Fri Dec 31 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 1,
       "comment": "W całym mieszkaniu",
-      "statusIfDone": true
+      "statusIfDone": false
     },
     {
       "id": 63,
@@ -72,7 +72,7 @@
       "dateStart": "Wed Dec 29 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "frequencyNumber": 2,
       "comment": "z frontami",
-      "statusIfDone": false
+      "statusIfDone": true
     }
   ]
 }
