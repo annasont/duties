@@ -35,11 +35,11 @@ export class ManageDutiesComponent implements OnInit {
     this.dutiesService.saveDuty(duty)
     .subscribe(
       (dutySaved) => {
-        if (duty.id == 0) {
-          this.duties = this.dutiesService.sortByTitle([...this.duties, dutySaved]);
+        let isNew = duty.id == 0;
+        if (isNew) {
+          this.addToList(dutySaved);
         } else {
-          this.duties.splice(this.duties.findIndex((element: Duty) => element.id == dutySaved.id), 1, dutySaved)
-          this.duties = this.dutiesService.sortByTitle(this.duties)
+          this.updateList(dutySaved);
         }
         this.resetSelectedDuty();
       },
@@ -47,6 +47,15 @@ export class ManageDutiesComponent implements OnInit {
     )
   }
 
+  private addToList(dutySaved: Duty) {
+    this.duties = this.dutiesService.sortByTitle([...this.duties, dutySaved]);
+  }
+
+  private updateList(dutySaved:Duty){
+    this.duties.splice(this.duties.findIndex((element: Duty) => element.id == dutySaved.id), 1, dutySaved);
+    this.duties = this.dutiesService.sortByTitle(this.duties);
+  }
+  
   delete(duty: Duty) {
     this.dutiesService.delete(duty).subscribe(
       () => {
