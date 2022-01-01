@@ -8,13 +8,12 @@ import { Duty} from '../../shared/interfaces';
 })
 export class DutyDetailsComponent implements OnInit {
   _currentDuty: Duty | undefined
-  date: Date | undefined
+  date: Date | undefined 
  
   @Input() optionsFrequency = [{}];
   @Input() optionsFrequencyUnit = [{}];
   @Output() saved: EventEmitter<Duty> = new EventEmitter();
   @Output() canceled = new EventEmitter();
-  @Output() dateUpdated = new EventEmitter();
   
   constructor() { }
 

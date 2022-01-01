@@ -73,34 +73,6 @@
       "frequencyNumber": 2,
       "comment": "z frontami",
       "statusIfDone": false
-    },
-    {
-      "id": 68,
-      "title": "a cos powiem?",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Tue Jan 04 2022 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": true,
-      "comment": "jutro ",
-      "frequencyNumber": 3
-    },
-    {
-      "id": 69,
-      "title": "A na początek",
-      "frequency": "oneTime",
-      "frequencyUnit": "weeks",
-      "dateStart": "Thu Jan 06 2022 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "comment": "dfjk"
-    },
-    {
-      "id": 70,
-      "title": "hoho ho prezenty",
-      "frequency": "repeat",
-      "frequencyUnit": "months",
-      "dateStart": "Thu Jan 06 2022 00:00:00 GMT+0100 (Central European Standard Time)",
-      "statusIfDone": false,
-      "frequencyNumber": 1
     }
   ]
 }

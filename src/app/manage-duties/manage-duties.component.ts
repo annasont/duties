@@ -64,11 +64,4 @@ export class ManageDutiesComponent implements OnInit {
     this.currentDuty = this.dutiesService.createEmptyDuty()
   }
 
-  updateDate(date: Date) {
-    if (!this.currentDuty) { 
-      throw new Error('Missing current duty');
-    }
-    this.currentDuty.dateStart = date.toString()
-  }
-
 }
