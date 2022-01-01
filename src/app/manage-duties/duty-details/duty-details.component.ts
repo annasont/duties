@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Optional, Output } from '@angular/core';
 import { Duty} from '../../shared/interfaces';
 
-
-
 @Component({
   selector: 'app-duty-details',
   templateUrl: './duty-details.component.html',

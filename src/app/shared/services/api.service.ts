@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Duty, Frequency, FrequencyUnit } from '../interfaces';
+import { Duty } from '../interfaces';
 
 const BASE_URL = 'http://localhost:3000/'
 

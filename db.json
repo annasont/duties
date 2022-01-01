@@ -2,12 +2,12 @@
   "duties": [
     {
       "id": 50,
-      "title": "Kupić kurtkę zimową",
+      "title": "Kupić kurtkę zimową i letnią",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
       "dateStart": "Fri Dec 03 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "statusIfDone": true,
-      "comment": "puchową"
+      "comment": "puchową lub syntetyczną"
     },
     {
       "id": 51,
@@ -38,16 +38,6 @@
       "statusIfDone": false
     },
     {
-      "id": 59,
-      "title": "Odkurzanie",
-      "frequency": "repeat",
-      "frequencyUnit": "weeks",
-      "dateStart": "Fri Dec 17 2021 00:00:00 GMT+0100 (Central European Standard Time)",
-      "frequencyNumber": 1,
-      "comment": "W całym mieszkaniu",
-      "statusIfDone": false
-    },
-    {
       "id": 60,
       "title": "Sprzątanie łazienki",
       "frequency": "repeat",
@@ -59,11 +49,40 @@
     },
     {
       "id": 61,
-      "title": "Kupić prezent dla Mamy",
+      "title": "Kupić prezent dla mamy",
       "frequency": "oneTime",
       "frequencyUnit": "weeks",
       "dateStart": "Thu Dec 09 2021 00:00:00 GMT+0100 (Central European Standard Time)",
       "statusIfDone": false
+    },
+    {
+      "id": 62,
+      "title": "Odkurzanie",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Fri Dec 31 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 1,
+      "comment": "W całym mieszkaniu",
+      "statusIfDone": false
+    },
+    {
+      "id": 63,
+      "title": "Malowanie ścian",
+      "frequency": "oneTime",
+      "frequencyUnit": "weeks",
+      "dateStart": "Tue Jan 18 2022 00:00:00 GMT+0100 (Central European Standard Time)",
+      "statusIfDone": false,
+      "comment": "w korytarzu i łazience"
+    },
+    {
+      "id": 64,
+      "title": "Sprzątanie kuchni",
+      "frequency": "repeat",
+      "frequencyUnit": "weeks",
+      "dateStart": "Wed Dec 29 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+      "frequencyNumber": 2,
+      "comment": "z frontami",
+      "statusIfDone": true
     }
   ]
 }

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -77,7 +76,6 @@ export class DutiesService {
     }
   }
 
-
   saveDuty(duty: Duty): Observable<Duty> {
     if (duty.id == 0) {
       return this.apiService.create(duty)
@@ -86,22 +84,9 @@ export class DutiesService {
     } 
   }
     
-
   delete(duty: Duty): Observable<void> {
     return this.apiService.delete(duty)
   }
-  
-  // updateDatabase(duty: Duty[], dutiesList: Duty[]) {
-    
-  // }
-  // (duty) => {
-  //   if (duty.id == 0) {
-  //     this.duties = this.dutiesService.sortByTitle([...this.duties, duty]);
-  //   } else {
-  //     this.duties.splice(this.duties.findIndex((element: Duty) => element.id == duty.id), 1, duty)
-  //     this.duties = this.dutiesService.sortByTitle(this.duties)
-  //   }
-  // },
 
 }
 
