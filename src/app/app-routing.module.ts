@@ -5,7 +5,7 @@ import { MyPlanComponent } from './my-plan/my-plan.component';
 
 
 const routes: Routes = [
-  { path: '', component: MyPlanComponent },
+  { path: '', redirectTo: '/my-plan', pathMatch: 'full' },
   { path: 'my-plan', component: MyPlanComponent },
   { path: 'manage-duties', component: ManageDutiesComponent }
 ]
